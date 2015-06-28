@@ -1,0 +1,4 @@
+riki34_game:
+    resource: "@riki34GameBundle/Controller/"
+    type:     annotation
+    prefix:   /

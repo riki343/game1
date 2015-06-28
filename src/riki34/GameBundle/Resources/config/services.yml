@@ -1,0 +1,5 @@
+parameters:
+
+services:
+    game.JSONLoader:
+        class: riki34\GameBundle\Service\JSONLoader

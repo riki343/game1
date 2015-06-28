@@ -1,0 +1,35 @@
+#game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.show-hide {
+    -webkit-transition: opacity linear 0.5s;
+    transition: opacity linear 0.5s;
+    opacity: 1.0;
+}
+
+.show-hide.ng-hide {
+    opacity: 0;
+}
+
+.spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background-color: #1220d1;
+}
+
+.spinner-text-block {
+    color: whitesmoke;
+    text-shadow: 2px 2px darkgray;
+    margin: 25% auto 0;
+    text-align: center;
+}

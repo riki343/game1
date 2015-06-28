@@ -1,0 +1,38 @@
+{% extends '@riki34Game/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('resources/css/main.css') }}" type="text/css" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('vendor/js/angular.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/angular-route.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/angular-animate.min.js') }}"></script>
+
+    <script src="{{ asset('game/game.core.js') }}"></script>
+    <script src="{{ asset('game/game.query.js') }}"></script>
+    <script src="{{ asset('game/game.model.js') }}"></script>
+
+    <script src="{{ asset('game/game.controller.js') }}"></script>
+
+    <script src="{{ asset('game/query/game.query.file_reader.js') }}"></script>
+    <script src="{{ asset('game/query/game.query.spinner.js') }}"></script>
+    <script src="{{ asset('game/query/game.query.spinner.controller.js') }}"></script>
+    <script src="{{ asset('game/query/game.query.resources.js') }}"></script>
+    <script src="{{ asset('game/query/game.query.resource_loader.js') }}"></script>
+    <base href="/" />
+{% endblock %}
+
+{% block body %}
+    <div ng-controller="GameController as game">
+        <div ng-controller="SpinnerController as spinner" ng-show="spinner.spinner" class="show-hide">
+            <div class="spinner">
+                <h1 class="spinner-text-block">Loading <span ng-show="spinner.showProgress" ng-bind="spinner.progress + '%'"></span>...</h1>
+            </div>
+        </div>
+
+        <div ng-view>Enable javascript in your browser</div>
+    </div>
+{% endblock %}
