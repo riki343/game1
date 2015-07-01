@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
-class LocationController extends Controller {
+class GameController extends Controller {
     /**
      * @Route("/get/location/{location_id}")
      * @param integer $location_id

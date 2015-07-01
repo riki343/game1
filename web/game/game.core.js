@@ -1,7 +1,8 @@
 (function (angular) {
     angular.module('core', [
-        'ngAnimate',
+        'global',
         'query',
-        'model'
+        'model',
+        'system'
     ]);
 })(angular);

@@ -1,6 +1,51 @@
 {% extends '@riki34Game/layout.html.twig' %}
 
 {% block body %}
-    <h1>Some title</h1>
-    <p>Some description</p>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row" style="margin-bottom: 30px;">
+                <div class="col-md-12">
+                    <img class="img-responsive center-block" src="{{ asset('resources/images/images/login.main.jpg') }}"
+                         alt="game" style="max-height: 280px;"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6" style="margin-bottom: 30px;">
+                    <h3 class="page-header" style="margin-top: 0;">{{ 'Join us' | trans }}</h3>
+                    <p>
+                        bla dwajhdjw awjh wakj hawjkd hawjdkh awkjd bla ahwjdkhawjkdhjwakhdjkawhdkj awd hajkdha
+                        bla cdjsvhskdjvmnfw qkwdj qwdk jofheflkewjg j bla dawldj kwaldh awhdl kwad wadh awkld awd
+                        bla dajw jwadj wad kwadj waldwakjdh awdj aw bla dwakld jwa djwak jwdlk jadkawjd kjawdl
+                        bla djawj dawj ldkawj dkaw hqowid qowdqwdo <br/>
+                    </p>
+                    <a class="btn btn-primary" href="{{ path('register_user') }}">{{ 'Registration' | trans }}</a>
+                </div>
+                <div class="col-sm-6" style="margin-bottom: 30px;">
+                    <h3 class="page-header" style="margin-top: 0;">{{ 'Login' | trans }}</h3>
+                    <form class="form-horizontal" action="{{ path('login_check') }}" method="POST">
+                        <div class="input-group input-group-sm form-field">
+                            <label for="login_form_login" class="input-group-addon">
+                                {{ 'Login or Email:' | trans }}
+                            </label>
+                            <input id="login_form_login" class="form-control" type="text" name="_username"/>
+                        </div>
+
+                        <div class="input-group input-group-sm form-field">
+                            <label for="login_form_login" class="input-group-addon">
+                                {{ 'Password:' | trans }}
+                            </label>
+                            <input id="login_form_login" class="form-control" type="password" name="_password" />
+                        </div>
+
+                        <input type="hidden" name="_target_path" value="/" />
+
+                        <div class="form-field">
+                            <button type="submit" class="btn btn-primary">{{ 'Login' | trans }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row"></div>
+        </div>
+    </div>
 {% endblock %}
