@@ -44,6 +44,26 @@ class PlayerChar
     private $modelID;
 
     /**
+     * @var Model
+     * @ORM\ManyToOne(targetEntity="Model")
+     * @ORM\JoinColumn(name="model_id", referencedColumnName="id")
+     */
+    private $model;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="location_id", type="integer", nullable=true, options={"default" = true})
+     */
+    private $locationID;
+
+    /**
+     * @var Location
+     * @ORM\ManyToOne(targetEntity="Location", inversedBy="monsters")
+     * @ORM\JoinColumn(name="location_id", referencedColumnName="id")
+     */
+    private $location;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="fraction_id", type="integer")
@@ -812,5 +832,64 @@ class PlayerChar
     public function getAchievements()
     {
         return $this->achievements;
+    }
+
+    /**
+     * Set locationID
+     *
+     * @param integer $locationID
+     * @return PlayerChar
+     */
+    public function setLocationID($locationID)
+    {
+        $this->locationID = $locationID;
+
+        return $this;
+    }
+
+    /**
+     * Get locationID
+     *
+     * @return integer 
+     */
+    public function getLocationID()
+    {
+        return $this->locationID;
+    }
+
+    /**
+     * Set model
+     *
+     * @param \riki34\GameBundle\Entity\Model $model
+     * @return PlayerChar
+     */
+    public function setModel(\riki34\GameBundle\Entity\Model $model = null)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * Set location
+     *
+     * @param \riki34\GameBundle\Entity\Location $location
+     * @return PlayerChar
+     */
+    public function setLocation(\riki34\GameBundle\Entity\Location $location = null)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return \riki34\GameBundle\Entity\Location 
+     */
+    public function getLocation()
+    {
+        return $this->location;
     }
 }

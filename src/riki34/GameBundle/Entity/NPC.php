@@ -5,12 +5,12 @@ namespace riki34\GameBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Decoration
+ * NPC
  *
- * @ORM\Table(name="decorations")
+ * @ORM\Table(name="NPC")
  * @ORM\Entity
  */
-class Decoration
+class NPC
 {
     /**
      * @var integer
@@ -29,25 +29,18 @@ class Decoration
     private $name;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="destroyable", type="boolean")
+     * @ORM\Column(name="fractionID", type="integer")
      */
-    private $destroyable;
+    private $fractionID;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="width", type="integer")
+     * @ORM\Column(name="typeID", type="integer")
      */
-    private $width;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="height", type="integer")
-     */
-    private $height;
+    private $typeID;
 
     /**
      * @var integer
@@ -65,6 +58,20 @@ class Decoration
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="bagID", type="integer")
+     */
+    private $bagID;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="immortal", type="boolean")
+     */
+    private $immortal;
+
+    /**
+     * @var integer
      * @ORM\Column(name="location_id", type="integer", nullable=true, options={"default" = true})
      */
     private $locationID;
@@ -75,6 +82,12 @@ class Decoration
      * @ORM\JoinColumn(name="location_id", referencedColumnName="id")
      */
     private $location;
+
+    /**
+     * @var array
+     * @ORM\Column(name="location_point", type="array")
+     */
+    private $locationPoint;
 
 
     /**
@@ -91,7 +104,7 @@ class Decoration
      * Set name
      *
      * @param string $name
-     * @return Decoration
+     * @return NPC
      */
     public function setName($name)
     {
@@ -111,102 +124,102 @@ class Decoration
     }
 
     /**
-     * Set destroyable
+     * Set fractionID
      *
-     * @param boolean $destroyable
-     * @return Decoration
+     * @param integer $fractionID
+     * @return NPC
      */
-    public function setDestroyable($destroyable)
+    public function setFractionID($fractionID)
     {
-        $this->destroyable = $destroyable;
+        $this->fractionID = $fractionID;
 
         return $this;
     }
 
     /**
-     * Get destroyable
+     * Get fractionID
+     *
+     * @return integer 
+     */
+    public function getFractionID()
+    {
+        return $this->fractionID;
+    }
+
+    /**
+     * Set typeID
+     *
+     * @param integer $typeID
+     * @return NPC
+     */
+    public function setTypeID($typeID)
+    {
+        $this->typeID = $typeID;
+
+        return $this;
+    }
+
+    /**
+     * Get typeID
+     *
+     * @return integer 
+     */
+    public function getTypeID()
+    {
+        return $this->typeID;
+    }
+
+    /**
+     * Set bagID;
+     *
+     * @param integer $bagID;
+     * @return NPC
+     */
+    public function setBagID($bagID)
+    {
+        $this->bagID = $bagID;
+
+        return $this;
+    }
+
+    /**
+     * Get bagID;
+     *
+     * @return integer 
+     */
+    public function getBagID()
+    {
+        return $this->bagID;
+    }
+
+    /**
+     * Set immortal
+     *
+     * @param boolean $immortal
+     * @return NPC
+     */
+    public function setImmortal($immortal)
+    {
+        $this->immortal = $immortal;
+
+        return $this;
+    }
+
+    /**
+     * Get immortal
      *
      * @return boolean 
      */
-    public function getDestroyable()
+    public function getImmortal()
     {
-        return $this->destroyable;
-    }
-
-    /**
-     * Set width
-     *
-     * @param integer $width
-     * @return Decoration
-     */
-    public function setWidth($width)
-    {
-        $this->width = $width;
-
-        return $this;
-    }
-
-    /**
-     * Get width
-     *
-     * @return integer 
-     */
-    public function getWidth()
-    {
-        return $this->width;
-    }
-
-    /**
-     * Set height
-     *
-     * @param integer $height
-     * @return Decoration
-     */
-    public function setHeight($height)
-    {
-        $this->height = $height;
-
-        return $this;
-    }
-
-    /**
-     * Get height
-     *
-     * @return integer 
-     */
-    public function getHeight()
-    {
-        return $this->height;
-    }
-
-    /**
-     * Set modelID
-     *
-     * @param integer $modelID
-     * @return Decoration
-     */
-    public function setModelID($modelID)
-    {
-        $this->modelID = $modelID;
-
-        return $this;
-    }
-
-    /**
-     * Get modelID
-     *
-     * @return integer 
-     */
-    public function getModelID()
-    {
-        return $this->modelID;
+        return $this->immortal;
     }
 
     /**
      * Set locationID
      *
      * @param integer $locationID
-     * @return Decoration
+     * @return NPC
      */
     public function setLocationID($locationID)
     {
@@ -226,10 +239,56 @@ class Decoration
     }
 
     /**
+     * Set locationPoint
+     *
+     * @param array $locationPoint
+     * @return NPC
+     */
+    public function setLocationPoint($locationPoint)
+    {
+        $this->locationPoint = $locationPoint;
+
+        return $this;
+    }
+
+    /**
+     * Get locationPoint
+     *
+     * @return array 
+     */
+    public function getLocationPoint()
+    {
+        return $this->locationPoint;
+    }
+
+    /**
+     * Set modelID
+     *
+     * @param integer $modelID
+     * @return NPC
+     */
+    public function setModelID($modelID)
+    {
+        $this->modelID = $modelID;
+
+        return $this;
+    }
+
+    /**
+     * Get modelID
+     *
+     * @return integer 
+     */
+    public function getModelID()
+    {
+        return $this->modelID;
+    }
+
+    /**
      * Set model
      *
      * @param \riki34\GameBundle\Entity\Model $model
-     * @return Decoration
+     * @return NPC
      */
     public function setModel(\riki34\GameBundle\Entity\Model $model = null)
     {
@@ -252,7 +311,7 @@ class Decoration
      * Set location
      *
      * @param \riki34\GameBundle\Entity\Location $location
-     * @return Decoration
+     * @return NPC
      */
     public function setLocation(\riki34\GameBundle\Entity\Location $location = null)
     {

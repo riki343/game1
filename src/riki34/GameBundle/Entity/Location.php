@@ -2,6 +2,7 @@
 
 namespace riki34\GameBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -54,6 +55,24 @@ class Location
      * @ORM\Column(name="file", type="string", length=255)
      */
     private $file;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Decoration", mappedBy="location")
+     */
+    private $decorations;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Monster", mappedBy="location")
+     */
+    private $monsters;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="NPC", mappedBy="location")
+     */
+    private $NPC;
 
     /**
      * Get id
@@ -178,5 +197,113 @@ class Location
     public function getFile()
     {
         return $this->file;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->decorations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->monsters = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->NPC = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add decorations
+     *
+     * @param \riki34\GameBundle\Entity\Decoration $decorations
+     * @return Location
+     */
+    public function addDecoration(\riki34\GameBundle\Entity\Decoration $decorations)
+    {
+        $this->decorations[] = $decorations;
+
+        return $this;
+    }
+
+    /**
+     * Remove decorations
+     *
+     * @param \riki34\GameBundle\Entity\Decoration $decorations
+     */
+    public function removeDecoration(\riki34\GameBundle\Entity\Decoration $decorations)
+    {
+        $this->decorations->removeElement($decorations);
+    }
+
+    /**
+     * Get decorations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDecorations()
+    {
+        return $this->decorations;
+    }
+
+    /**
+     * Add monsters
+     *
+     * @param \riki34\GameBundle\Entity\Monster $monsters
+     * @return Location
+     */
+    public function addMonster(\riki34\GameBundle\Entity\Monster $monsters)
+    {
+        $this->monsters[] = $monsters;
+
+        return $this;
+    }
+
+    /**
+     * Remove monsters
+     *
+     * @param \riki34\GameBundle\Entity\Monster $monsters
+     */
+    public function removeMonster(\riki34\GameBundle\Entity\Monster $monsters)
+    {
+        $this->monsters->removeElement($monsters);
+    }
+
+    /**
+     * Get monsters
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMonsters()
+    {
+        return $this->monsters;
+    }
+
+    /**
+     * Add NPC
+     *
+     * @param \riki34\GameBundle\Entity\NPC $nPC
+     * @return Location
+     */
+    public function addNPC(\riki34\GameBundle\Entity\NPC $nPC)
+    {
+        $this->NPC[] = $nPC;
+
+        return $this;
+    }
+
+    /**
+     * Remove NPC
+     *
+     * @param \riki34\GameBundle\Entity\NPC $nPC
+     */
+    public function removeNPC(\riki34\GameBundle\Entity\NPC $nPC)
+    {
+        $this->NPC->removeElement($nPC);
+    }
+
+    /**
+     * Get NPC
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNPC()
+    {
+        return $this->NPC;
     }
 }

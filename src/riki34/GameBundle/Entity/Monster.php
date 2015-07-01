@@ -43,6 +43,13 @@ class Monster
     private $modelID;
 
     /**
+     * @var Model
+     * @ORM\ManyToOne(targetEntity="Model")
+     * @ORM\JoinColumn(name="model_id", referencedColumnName="id")
+     */
+    private $model;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="fraction_id", type="integer", nullable=true, options={ "default" = null })
@@ -102,6 +109,19 @@ class Monster
      * @ORM\Column(name="energy_regeneration", type="float")
      */
     private $energyRegeneration;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="location_id", type="integer", nullable=true, options={"default" = true})
+     */
+    private $locationID;
+
+    /**
+     * @var Location
+     * @ORM\ManyToOne(targetEntity="Location", inversedBy="monsters")
+     * @ORM\JoinColumn(name="location_id", referencedColumnName="id")
+     */
+    private $location;
 
     /**
      * Get id
@@ -433,5 +453,74 @@ class Monster
     public function getEnergyRegeneration()
     {
         return $this->energyRegeneration;
+    }
+
+    /**
+     * Set locationID
+     *
+     * @param integer $locationID
+     * @return Monster
+     */
+    public function setLocationID($locationID)
+    {
+        $this->locationID = $locationID;
+
+        return $this;
+    }
+
+    /**
+     * Get locationID
+     *
+     * @return integer 
+     */
+    public function getLocationID()
+    {
+        return $this->locationID;
+    }
+
+    /**
+     * Set model
+     *
+     * @param \riki34\GameBundle\Entity\Model $model
+     * @return Monster
+     */
+    public function setModel(\riki34\GameBundle\Entity\Model $model = null)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * Get model
+     *
+     * @return \riki34\GameBundle\Entity\Model 
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * Set location
+     *
+     * @param \riki34\GameBundle\Entity\Location $location
+     * @return Monster
+     */
+    public function setLocation(\riki34\GameBundle\Entity\Location $location = null)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return \riki34\GameBundle\Entity\Location 
+     */
+    public function getLocation()
+    {
+        return $this->location;
     }
 }

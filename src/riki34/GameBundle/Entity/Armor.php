@@ -24,7 +24,7 @@ class Armor
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
 
@@ -34,6 +34,13 @@ class Armor
      * @ORM\Column(name="modelID", type="integer")
      */
     private $modelID;
+
+    /**
+     * @var Model
+     * @ORM\ManyToOne(targetEntity="Model")
+     * @ORM\JoinColumn(name="model_id", referencedColumnName="id")
+     */
+    private $model;
 
     /**
      * @var float
@@ -360,5 +367,28 @@ class Armor
     public function getTypeID()
     {
         return $this->typeID;
+    }
+
+    /**
+     * Set model
+     *
+     * @param \riki34\GameBundle\Entity\Model $model
+     * @return Armor
+     */
+    public function setModel(\riki34\GameBundle\Entity\Model $model = null)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * Get model
+     *
+     * @return \riki34\GameBundle\Entity\Model 
+     */
+    public function getModel()
+    {
+        return $this->model;
     }
 }

@@ -11,10 +11,7 @@ class GameController extends Controller {
      * @Route("/get/location/{location_id}")
      * @param integer $location_id
      */
-    public function getLocationAction($location_id) {
-        $location = $this->getDoctrine()->getRepository('riki34GameBundle:Location')->find($location_id);
-        if ($location) {
+    public function indexAction($location_id) {
 
-        }
     }
 }

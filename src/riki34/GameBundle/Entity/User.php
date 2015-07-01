@@ -115,6 +115,16 @@ class User implements UserInterface, RESTEntity, \Serializable
     private $deleted;
 
     /**
+     * @var ArrayCollection
+     * @ORM\ManyToMany(targetEntity="Achievement", fetch="EXTRA_LAZY")
+     * @ORM\JoinTable(name="user_gained_achievements",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="achievement_id", referencedColumnName="id")}
+     * )
+     */
+    private $gainedAchievements;
+
+    /**
      * @return array
      */
     public function getInArray() {
@@ -485,5 +495,104 @@ class User implements UserInterface, RESTEntity, \Serializable
     public function removeRole(\riki34\GameBundle\Entity\Role $roles)
     {
         $this->roles->removeElement($roles);
+    }
+
+    /**
+     * Add completedQuests
+     *
+     * @param \riki34\GameBundle\Entity\Quest $completedQuests
+     * @return User
+     */
+    public function addCompletedQuest(\riki34\GameBundle\Entity\Quest $completedQuests)
+    {
+        $this->completedQuests[] = $completedQuests;
+
+        return $this;
+    }
+
+    /**
+     * Remove completedQuests
+     *
+     * @param \riki34\GameBundle\Entity\Quest $completedQuests
+     */
+    public function removeCompletedQuest(\riki34\GameBundle\Entity\Quest $completedQuests)
+    {
+        $this->completedQuests->removeElement($completedQuests);
+    }
+
+    /**
+     * Get completedQuests
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCompletedQuests()
+    {
+        return $this->completedQuests;
+    }
+
+    /**
+     * Add takenQuests
+     *
+     * @param \riki34\GameBundle\Entity\Quest $takenQuests
+     * @return User
+     */
+    public function addTakenQuest(\riki34\GameBundle\Entity\Quest $takenQuests)
+    {
+        $this->takenQuests[] = $takenQuests;
+
+        return $this;
+    }
+
+    /**
+     * Remove takenQuests
+     *
+     * @param \riki34\GameBundle\Entity\Quest $takenQuests
+     */
+    public function removeTakenQuest(\riki34\GameBundle\Entity\Quest $takenQuests)
+    {
+        $this->takenQuests->removeElement($takenQuests);
+    }
+
+    /**
+     * Get takenQuests
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTakenQuests()
+    {
+        return $this->takenQuests;
+    }
+
+    /**
+     * Add gainedAchievements
+     *
+     * @param \riki34\GameBundle\Entity\Achievement $gainedAchievements
+     * @return User
+     */
+    public function addGainedAchievement(\riki34\GameBundle\Entity\Achievement $gainedAchievements)
+    {
+        $this->gainedAchievements[] = $gainedAchievements;
+
+        return $this;
+    }
+
+    /**
+     * Remove gainedAchievements
+     *
+     * @param \riki34\GameBundle\Entity\Achievement $gainedAchievements
+     */
+    public function removeGainedAchievement(\riki34\GameBundle\Entity\Achievement $gainedAchievements)
+    {
+        $this->gainedAchievements->removeElement($gainedAchievements);
+    }
+
+    /**
+     * Get gainedAchievements
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGainedAchievements()
+    {
+        return $this->gainedAchievements;
     }
 }
