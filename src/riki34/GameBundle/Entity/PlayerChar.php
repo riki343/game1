@@ -4,6 +4,7 @@ namespace riki34\GameBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * PlayerChar
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="player_chars")
  * @ORM\Entity
  */
-class PlayerChar
+class PlayerChar implements RESTEntity
 {
     /**
      * @var integer
@@ -28,6 +29,19 @@ class PlayerChar
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="user_id", type="integer")
+     */
+    private $userID;
+
+    /**
+     * @var User
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="chars")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
     /**
      * @var boolean
@@ -182,19 +196,31 @@ class PlayerChar
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Skill", mappedBy="users")
+     * @ORM\ManyToMany(targetEntity="Skill", fetch="EXTRA_LAZY")
+     * @ORM\JoinTable(name="char_skills",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="skill_id", referencedColumnName="id")}
+     * )
      */
     private $skills;
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Quest", mappedBy="users")
+     * @ORM\ManyToMany(targetEntity="Quest", fetch="EXTRA_LAZY")
+     * @ORM\JoinTable(name="char_complete_quests",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="quest_id", referencedColumnName="id")}
+     * )
      */
-    private $quests;
+    private $completedQuests;
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Achievement", mappedBy="users")
+     * @ORM\ManyToMany(targetEntity="Achievement", fetch="EXTRA_LAZY")
+     * @ORM\JoinTable(name="char_achievement",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="achievement_id", referencedColumnName="id")}
+     * )
      */
     private $achievements;
 
@@ -210,6 +236,13 @@ class PlayerChar
         $this->achievements = new ArrayCollection();
         $this->fraction = $fraction;
         $this->specialization = $specialization;
+    }
+
+    /// TODO: implement function
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+        );
     }
 
     /**
@@ -891,5 +924,84 @@ class PlayerChar
     public function getLocation()
     {
         return $this->location;
+    }
+
+    /**
+     * Set userID
+     *
+     * @param integer $userID
+     * @return PlayerChar
+     */
+    public function setUserID($userID)
+    {
+        $this->userID = $userID;
+
+        return $this;
+    }
+
+    /**
+     * Get userID
+     *
+     * @return integer 
+     */
+    public function getUserID()
+    {
+        return $this->userID;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \riki34\GameBundle\Entity\User $user
+     * @return PlayerChar
+     */
+    public function setUser(\riki34\GameBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \riki34\GameBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Add completedQuests
+     *
+     * @param \riki34\GameBundle\Entity\Quest $completedQuests
+     * @return PlayerChar
+     */
+    public function addCompletedQuest(\riki34\GameBundle\Entity\Quest $completedQuests)
+    {
+        $this->completedQuests[] = $completedQuests;
+
+        return $this;
+    }
+
+    /**
+     * Remove completedQuests
+     *
+     * @param \riki34\GameBundle\Entity\Quest $completedQuests
+     */
+    public function removeCompletedQuest(\riki34\GameBundle\Entity\Quest $completedQuests)
+    {
+        $this->completedQuests->removeElement($completedQuests);
+    }
+
+    /**
+     * Get completedQuests
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCompletedQuests()
+    {
+        return $this->completedQuests;
     }
 }

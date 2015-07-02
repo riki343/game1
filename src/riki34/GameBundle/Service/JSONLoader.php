@@ -23,7 +23,7 @@ class JSONLoader {
 
     /**
      * @param string $filename
-     * @param string $content
+     * @param array $content
      */
     public function storeFile($filename, $content) {
         if (!$this->fs->exists($filename)) {

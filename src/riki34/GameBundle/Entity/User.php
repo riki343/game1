@@ -125,6 +125,12 @@ class User implements UserInterface, RESTEntity, \Serializable
     private $gainedAchievements;
 
     /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="PlayerChar", mappedBy="chars")
+     */
+    private $chars;
+
+    /**
      * @return array
      */
     public function getInArray() {
@@ -594,5 +600,38 @@ class User implements UserInterface, RESTEntity, \Serializable
     public function getGainedAchievements()
     {
         return $this->gainedAchievements;
+    }
+
+    /**
+     * Add chars
+     *
+     * @param \riki34\GameBundle\Entity\PlayerChar $chars
+     * @return User
+     */
+    public function addChar(\riki34\GameBundle\Entity\PlayerChar $chars)
+    {
+        $this->chars[] = $chars;
+
+        return $this;
+    }
+
+    /**
+     * Remove chars
+     *
+     * @param \riki34\GameBundle\Entity\PlayerChar $chars
+     */
+    public function removeChar(\riki34\GameBundle\Entity\PlayerChar $chars)
+    {
+        $this->chars->removeElement($chars);
+    }
+
+    /**
+     * Get chars
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChars()
+    {
+        return $this->chars;
     }
 }

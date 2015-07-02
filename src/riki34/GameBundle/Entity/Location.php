@@ -4,6 +4,8 @@ namespace riki34\GameBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Extra\JSONTransformer;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Location
@@ -11,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="locations")
  * @ORM\Entity
  */
-class Location
+class Location implements RESTEntity
 {
     /**
      * @var integer
@@ -73,6 +75,62 @@ class Location
      * @ORM\OneToMany(targetEntity="NPC", mappedBy="location")
      */
     private $NPC;
+
+    /**
+     * @var array
+     */
+    private $resources;
+
+    /**
+     * @var array
+     */
+    private $res;
+
+    public function getInArray() {
+        $resources = array();
+        $resources['NPC'] = JSONTransformer::arrayToJsonArray($this->resources['NPC']);
+        $resources['monsters'] = JSONTransformer::arrayToJsonArray($this->resources['monsters']);
+        $resources['decorations'] = JSONTransformer::arrayToJsonArray($this->resources['decorations']);
+
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'file' => $this->file,
+            'height' => $this->height,
+            'width' => $this->width,
+            'levelRequired' => $this->levelRequired,
+            'resources' => $resources,
+            'res' => $this->res,
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function getResources() {
+        return $this->resources;
+    }
+
+    /**
+     * @param array $resources
+     */
+    public function setResources(array $resources) {
+        $this->resources = $resources;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRes() {
+        return $this->res;
+    }
+
+    /**
+     * @param array $resources
+     */
+    public function setRes(array $resources) {
+        $this->res = $resources;
+    }
 
     /**
      * Get id

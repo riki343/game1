@@ -2,6 +2,7 @@
 
 namespace riki34\GameBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -77,7 +78,14 @@ class QuestCondition
      */
     private $lootID;
 
-    /// TODO: need to implement LOOT
+    /**
+     * @var ArrayCollection
+     * @ORM\ManyToMany(targetEntity="Item", fetch="EXTRA_LAZY")
+     * @ORM\JoinTable(name="quest_items",
+     *     joinColumns={@ORM\JoinColumn(name="quest_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="item_id", referencedColumnName="id")}
+     * )
+     */
     private $loot;
 
     /**
@@ -445,5 +453,45 @@ class QuestCondition
     public function getQuest()
     {
         return $this->quest;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->loot = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add loot
+     *
+     * @param \riki34\GameBundle\Entity\Item $loot
+     * @return QuestCondition
+     */
+    public function addLoot(\riki34\GameBundle\Entity\Item $loot)
+    {
+        $this->loot[] = $loot;
+
+        return $this;
+    }
+
+    /**
+     * Remove loot
+     *
+     * @param \riki34\GameBundle\Entity\Item $loot
+     */
+    public function removeLoot(\riki34\GameBundle\Entity\Item $loot)
+    {
+        $this->loot->removeElement($loot);
+    }
+
+    /**
+     * Get loot
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLoot()
+    {
+        return $this->loot;
     }
 }

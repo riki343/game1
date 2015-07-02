@@ -48,4 +48,18 @@ class RESTResponse {
     public function generateErrorResponseWithObjects() {
 
     }
+
+    // -------------------------------------------------------- \\
+
+    /**
+     * @param array $messages
+     * @return JsonResponse
+     */
+    public function generateSuccessResponse(array $messages) {
+        return new JsonResponse(array(
+            'error' => -1,
+            'object' => false,
+            'messages' => $messages,
+        ));
+    }
 }
