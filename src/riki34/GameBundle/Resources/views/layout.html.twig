@@ -3,7 +3,7 @@
 <head>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('vendor/css/bootstrap.min.css') }}" />
-        <link rel="stylesheet" href="{{ asset('vendor/css/jasny-bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('vendor/css/jasny-bootstrap.css') }}" />
         <link rel="stylesheet" href="{{ asset('vendor/css/font-awesome.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('resources/css/main.css') }}" type="text/css" />
     {% endblock %}
@@ -13,7 +13,9 @@
         <script src="{{ asset('vendor/js/jasny-bootstrap.min.js') }}"></script>
     {% endblock %}
 </head>
-<body>
+<body ng-app="core">
+    {% block left_nav %}{% endblock %}
+
     <div class="container">
         {% for flashMessage in app.session.flashbag.get('success') %}
             <div class="alert alert-success alert-fixed-top transparent-80 text-center">
@@ -27,8 +29,6 @@
                 <strong style="color: #f5f5f5;">{{ flashMessage }}</strong>
             </div>
         {% endfor %}
-
-        {% block left_nav %}{% endblock %}
 
         <div class="row">
             <div class="col-md-12">

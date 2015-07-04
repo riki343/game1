@@ -11,44 +11,59 @@
     <script src="{{ asset('vendor/js/angular-animate.min.js') }}"></script>
     <script src="{{ asset('vendor/js/angular-translate.js') }}"></script>
     <script src="{{ asset('vendor/js/angular-translate-loader-static-files.js') }}"></script>
+    {{ clank_client() }}
 
+    <!-- ------------- Modules ------------- -->
     <script src="{{ asset('game/game.global.js') }}"></script>
-    <script src="{{ asset('game/global/game.global.consts.js') }}"></script>
-
     <script src="{{ asset('game/game.query.js') }}"></script>
-    <script src="{{ asset('game/query/game.query.file_reader.js') }}"></script>
-    <script src="{{ asset('game/query/game.query.spinner.js') }}"></script>
-    <script src="{{ asset('game/query/game.query.spinner.controller.js') }}"></script>
-    <script src="{{ asset('game/query/game.query.resources.js') }}"></script>
-    <script src="{{ asset('game/query/game.query.resource_loader.js') }}"></script>
-
-
     <script src="{{ asset('game/game.model.js') }}"></script>
-    <script src="{{ asset('game/model/game.model.sprite.js') }}"></script>
-
     <script src="{{ asset('game/game.system.js') }}"></script>
-    <script src="{{ asset('game/system/game.system.config.js') }}"></script>
-    <script src="{{ asset('game/system/game.system.game.controller.js') }}"></script>
-
     <script src="{{ asset('game/game.core.js') }}"></script>
 
+    <!-- ------------- Constants ------------- -->
+    <script src="{{ asset('game/global/game.global.consts.js') }}"></script>
+
+    <!-- ------------- Configurations ------------- -->
+    <script src="{{ asset('game/system/game.system.config.js') }}"></script>
     <script src="{{ asset('game/core/game.core.config.js') }}"></script>
+
+    <!-- ------------- Models ------------- -->
+    <script src="{{ asset('game/model/game.model.sprite.js') }}"></script>
+
+    <!-- ------------- Services ------------- -->
+    <script src="{{ asset('game/query/game.query.file_reader.js') }}"></script>
+    <script src="{{ asset('game/query/game.query.spinner.js') }}"></script>
+    <script src="{{ asset('game/query/game.query.resources.js') }}"></script>
+    <script src="{{ asset('game/query/game.query.resource_loader.js') }}"></script>
+    <script src="{{ asset('game/core/game.core.clank.service.js') }}"></script>
+
+    <!-- ------------- Controllers ------------- -->
+    <script src="{{ asset('game/query/game.query.spinner.controller.js') }}"></script>
+    <script src="{{ asset('game/system/game.system.game.controller.js') }}"></script>
     <script src="{{ asset('game/core/game.core.controller.js') }}"></script>
 
     <base href="/" />
 {% endblock %}
 
 {% block left_nav %}
+    <nav id="left-side-bar" class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+        <h4 class="page-header" align="center">Menu</h4>
+        <ul class="nav navmenu-nav">
+            <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+        </ul>
+    </nav>
+    <button type="button" class="btn btn-default" data-toggle="offcanvas" data-target="#left-side-bar" data-canvas="body">
+        Menu >>
+    </button>
 {% endblock %}
 
 {% block body %}
-    <div ng-app="core">
-        <div ng-controller="SpinnerController as spinner" ng-show="spinner.spinner" class="show-hide">
-            <div class="spinner">
-                <h1 class="spinner-text-block">Loading <span ng-show="spinner.showProgress" ng-bind="spinner.progress + '%'"></span>...</h1>
-            </div>
+    <div ng-controller="SpinnerController as spinner" ng-show="spinner.spinner" class="show-hide">
+        <div class="spinner">
+            <h1 class="spinner-text-block">Loading <span ng-show="spinner.showProgress" ng-bind="spinner.progress + '%'"></span>...</h1>
         </div>
-
-        <div ng-view>Enable javascript in your browser</div>
     </div>
+
+    <div ng-view>Enable javascript in your browser</div>
 {% endblock %}
