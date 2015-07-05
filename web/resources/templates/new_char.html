@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-sm-4 col-xs-5">
+        <form ng-submit="newChar.addChar(newChar.char)" form-validation errors="newChar.errors" model="newChar.char">
+            <div class="form-field">
+                <div class="input-group input-group-sm">
+                    <label class="input-group-addon" for="add_char_fraction_select">Fraction:</label>
+                    <select class="form-control" name="fractionID" id="add_char_fraction_select" ng-model="newChar.char.fractionID">
+                        <option value="1">Red fraction</option>
+                        <option value="2">Blue fraction</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <div class="input-group input-group-sm">
+                    <label class="input-group-addon" for="add_char_spec_select">Specialization:</label>
+                    <select class="form-control" name="specializationID" id="add_char_spec_select" ng-model="newChar.char.specializationID">
+                        <option value="1">Heal</option>
+                        <option value="2">Damage dealer</option>
+                        <option value="3">Tank</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <div class="input-group input-group-sm">
+                    <label class="input-group-addon" for="add_char_sex_select">Sex:</label>
+                    <select class="form-control" name="sex" id="add_char_sex_select" ng-model="newChar.char.sex">
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <div class="input-group input-group-sm">
+                    <label class="input-group-addon" for="add_char_name">Char name:</label>
+                    <input class="form-control" type="text" name="name" id="add_char_name" ng-model="newChar.char.name" />
+                </div>
+            </div>
+
+            <div class="form-field">
+                <button type="submit" class="btn btn-success form-control">
+                    Create
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-8 col-xs-7">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <b>Fraction:</b>
+                </div>
+                <div ng-switch="newChar.char.fractionID" class="panel-body">
+                    <div ng-switch-when="1">
+                        Some description for <span style="color: red; text-shadow: 1px 1px black;">Red</span> fraction
+                    </div>
+                    <div ng-switch-when="2">
+                        Some description for <span style="color: blue; text-shadow: 1px 1px black;">Blue</span> fraction
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <b>Specialization:</b>
+                </div>
+                <div ng-switch="newChar.char.specializationID" class="panel-body">
+                    <div ng-switch-when="1">
+                        Some description for the Heal
+                    </div>
+                    <div ng-switch-when="2">
+                        Some description for the Damage dealer
+                    </div>
+                    <div ng-switch-when="3">
+                        Some description for the Tank
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

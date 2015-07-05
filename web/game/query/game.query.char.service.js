@@ -8,7 +8,8 @@
     function charService(query) {
         var factory = {
             'getChars': getChars,
-            'getChar': getChar
+            'getChar': getChar,
+            'addChar': addChar
         };
 
         return factory;
@@ -19,6 +20,10 @@
 
         function getChars() {
             return query.get(Routing.generate('get_user_chars'), true);
+        }
+
+        function addChar(char) {
+            return query.post(Routing.generate('user_add_char'), char, true);
         }
     }
 })(angular);

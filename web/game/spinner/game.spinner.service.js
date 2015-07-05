@@ -1,5 +1,5 @@
 (function (angular) {
-    angular.module('query').factory('spinnerService', spinner);
+    angular.module('spinner').factory('spinnerService', spinner);
 
     spinner.$inject = [
         '$rootScope'

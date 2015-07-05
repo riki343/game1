@@ -5,16 +5,19 @@
 
     function charModel() {
         var factory = {
-            'getModel': getModel
+            'newModel': newModel
         };
 
         return factory;
 
-        function getModel(options) {
-            this.name = options.name;
-            this.level = options.level;
-
-            return this;
+        function newModel() {
+            //this.modelID = 1;
+            return new function () {
+                this.name = '';
+                this.fractionID = 1;
+                this.specializationID = 1;
+                this.sex = 1;
+            };
         }
     }
 

@@ -11,6 +11,11 @@
             .when('/', {
                 'templateUrl': TEMPLATES.game.mainMenu,
                 'controller': 'GameController as game'
-            });
+            })
+            .when('/new_char', {
+                'templateUrl': TEMPLATES.game.newChar,
+                'controller': 'NewCharController as newChar'
+            })
+        ;
     }
 })(angular);

@@ -18,35 +18,38 @@
 
     <!-- ------------- Modules ------------- -->
     <script src="{{ asset('game/game.global.js') }}"></script>
+    <script src="{{ asset('game/global/game.global.consts.js') }}"></script>
+
+    <script src="{{ asset('game/game.spinner.js') }}"></script>
+    <script src="{{ asset('game/spinner/game.spinner.service.js') }}"></script>
+
+    <script src="{{ asset('game/game.validation.js') }}"></script>
+    <script src="{{ asset('game/validation/game.validation.form_validation.directive.js') }}"></script>
+
     <script src="{{ asset('game/game.model.js') }}"></script>
+    <script src="{{ asset('game/model/game.model.sprite.js') }}"></script>
+    <script src="{{ asset('game/model/game.model.char.js') }}"></script>
+
     <script src="{{ asset('game/game.query.js') }}"></script>
     <script src="{{ asset('game/game.system.js') }}"></script>
     <script src="{{ asset('game/game.core.js') }}"></script>
 
-    <!-- ------------- Constants ------------- -->
-    <script src="{{ asset('game/global/game.global.consts.js') }}"></script>
-
-    <!-- ------------- Models ------------- -->
-    <script src="{{ asset('game/model/game.model.sprite.js') }}"></script>
-    <script src="{{ asset('game/model/game.model.char.js') }}"></script>
-
-    <!-- ------------- Services ------------- -->
     <script src="{{ asset('game/query/game.query.execute.service.js') }}"></script>
     <script src="{{ asset('game/query/game.query.char.service.js') }}"></script>
     <script src="{{ asset('game/query/game.query.file_reader.js') }}"></script>
-    <script src="{{ asset('game/query/game.query.spinner.js') }}"></script>
     <script src="{{ asset('game/query/game.query.resources.js') }}"></script>
     <script src="{{ asset('game/query/game.query.resource_loader.js') }}"></script>
     <script src="{{ asset('game/core/game.core.clank.service.js') }}"></script>
 
-    <!-- ------------- Controllers ------------- -->
-    <script src="{{ asset('game/query/game.query.spinner.controller.js') }}"></script>
+    <script src="{{ asset('game/system/game.system.global.controller.js') }}"></script>
     <script src="{{ asset('game/system/game.system.game.controller.js') }}"></script>
     <script src="{{ asset('game/core/game.core.controller.js') }}"></script>
+    <script src="{{ asset('game/system/game.system.new_char.controller.js') }}"></script>
 
-    <!-- ------------- Configurations ------------- -->
     <script src="{{ asset('game/system/game.system.config.js') }}"></script>
     <script src="{{ asset('game/core/game.core.config.js') }}"></script>
+
+    <script src="{{ asset('game/spinner/game.spinner.controller.js') }}"></script>
 
     <base href="/" />
 {% endblock %}
@@ -80,11 +83,13 @@
 {% endblock %}
 
 {% block body %}
-    <div ng-controller="SpinnerController as spinner" ng-show="spinner.spinner" class="show-hide">
-        <div class="spinner">
-            <h1 class="spinner-text-block">Loading <span ng-show="spinner.showProgress" ng-bind="spinner.progress + '%'"></span>...</h1>
+    <div ng-controller="GlobalController">
+        <div ng-controller="SpinnerController as spinner" ng-show="spinner.spinner" class="show-hide">
+            <div class="spinner">
+                <h1 class="spinner-text-block">Loading <span ng-show="spinner.showProgress" ng-bind="spinner.progress + '%'"></span>...</h1>
+            </div>
         </div>
-    </div>
 
-    <div id="view-container" ng-view>Enable javascript in your browser</div>
+        <div id="view-container" ng-view>Enable javascript in your browser</div>
+    </div>
 {% endblock %}

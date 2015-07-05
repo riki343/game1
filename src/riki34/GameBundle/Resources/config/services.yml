@@ -13,3 +13,7 @@ services:
 
     game.topic:
         class: riki34\GameBundle\Topic\GameTopic
+
+    game.char:
+        class: riki34\GameBundle\Service\CharService
+        arguments: ["@doctrine.orm.default_entity_manager", "@game.RESTResponse", "@validator", "@security.token_storage"]

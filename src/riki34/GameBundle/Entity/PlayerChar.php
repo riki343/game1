@@ -6,12 +6,15 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use riki34\GameBundle\Extra\JSONTransformer;
 use riki34\GameBundle\Interfaces\RESTEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * PlayerChar
  *
  * @ORM\Table(name="player_chars")
  * @ORM\Entity
+ * @UniqueEntity("name")
  */
 class PlayerChar implements RESTEntity
 {
@@ -26,7 +29,11 @@ class PlayerChar implements RESTEntity
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(groups={"create"})
+     * @Assert\Length(
+     *      min="2", max="15",
+     *      groups={"create"}
+     * )
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
@@ -47,7 +54,7 @@ class PlayerChar implements RESTEntity
     /**
      * @var boolean
      *
-     * @ORM\Column(name="sex", type="boolean")
+     * @ORM\Column(name="sex", type="integer")
      */
     private $sex;
 
@@ -197,15 +204,8 @@ class PlayerChar implements RESTEntity
     private $guild;
 
     /**
-     * @var integer
-     * @ORM\Column(name="bag_id", type="integer", nullable=true, options={"default" = null})
-     */
-    private $bagID;
-
-    /**
      * @var Bag
-     * @ORM\OneToOne(targetEntity="Bag", mappedBy="char", cascade={"remove", "persist"})
-     * @ORM\JoinColumn(name="bag_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="Bag", mappedBy="char", cascade={"remove"})
      */
     private $bag;
 
@@ -245,12 +245,22 @@ class PlayerChar implements RESTEntity
      */
     public function __construct(Fraction $fraction, Specialization $specialization) {
         $this->created = new \DateTime();
-        $this->bag = new Bag();
         $this->skills = new ArrayCollection();
         $this->quests = new ArrayCollection();
         $this->achievements = new ArrayCollection();
         $this->fraction = $fraction;
         $this->specialization = $specialization;
+        $this->hp = 100;
+        $this->hpRegeneration = 0;
+        $this->mp = 0;
+        $this->mpRegeneration = 0;
+        $this->energy = 0;
+        $this->energyRegeneration = 0;
+        $this->strength = 0;
+        $this->agility = 0;
+        $this->intelligence = 0;
+        $this->level = 1;
+        $this->experience = 0;
     }
 
     public function getInArray() {
@@ -1092,5 +1102,28 @@ class PlayerChar implements RESTEntity
         $this->specialization = $specialization;
 
         return $this;
+    }
+
+    /**
+     * Add bag
+     *
+     * @param \riki34\GameBundle\Entity\Bag $bag
+     * @return PlayerChar
+     */
+    public function addBag(\riki34\GameBundle\Entity\Bag $bag)
+    {
+        $this->bag[] = $bag;
+
+        return $this;
+    }
+
+    /**
+     * Remove bag
+     *
+     * @param \riki34\GameBundle\Entity\Bag $bag
+     */
+    public function removeBag(\riki34\GameBundle\Entity\Bag $bag)
+    {
+        $this->bag->removeElement($bag);
     }
 }

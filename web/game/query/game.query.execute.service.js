@@ -16,12 +16,15 @@
 
         return factory;
 
-        function Post(path, object) {
+        function Post(path, object, withSpinner) {
             var deffered = $q.defer();
             var promise = $http.post(path, object);
             promise.then(function (data) {
                 deffered.resolve(data.data);
             });
+            if (angular.isDefined(withSpinner) && withSpinner === true) {
+                spinner.addPromise(deffered.promise);
+            }
             return deffered.promise;
         }
 
@@ -37,12 +40,15 @@
             return deffered.promise;
         }
 
-        function Delete(path) {
+        function Delete(path, withSpinner) {
             var deffered = $q.defer();
             var promise = $http.delete(path);
             promise.then(function (data) {
                 deffered.resolve(data.data);
             });
+            if (angular.isDefined(withSpinner) && withSpinner === true) {
+                spinner.addPromise(deffered.promise);
+            }
             return deffered.promise;
         }
     }

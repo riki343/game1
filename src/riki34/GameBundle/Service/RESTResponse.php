@@ -7,6 +7,8 @@ use riki34\GameBundle\Interfaces\RESTEntity;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Validator\ConstraintViolationList;
+use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 class RESTResponse {
     /**
@@ -37,8 +39,18 @@ class RESTResponse {
 
     // -------------------------------------------------------- \\
 
-    public function generateErrorResponse() {
-
+    /**
+     * @param array|ConstraintViolationListInterface $messages
+     * @return JsonResponse
+     */
+    public function generateErrorResponse($messages = array()) {
+        return new JsonResponse(array(
+            'error' => 1,
+            'object' => false,
+            'messages' => ($messages instanceof ConstraintViolationListInterface)
+                ? JSONTransformer::errorsToJson($messages)
+                : $messages,
+        ));
     }
 
     public function generateErrorResponseWithObject() {
@@ -55,7 +67,7 @@ class RESTResponse {
      * @param array $messages
      * @return JsonResponse
      */
-    public function generateSuccessResponse(array $messages) {
+    public function generateSuccessResponse(array $messages = array()) {
         return new JsonResponse(array(
             'error' => -1,
             'object' => false,

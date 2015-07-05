@@ -1,16 +1,31 @@
 <div id="game-menu">
     <div class="row">
-        <div class="col-md-4 col-sm-5 col-xs-6">
-            <div class="list-group char-list">
+        <div class="col-md-4 col-sm-5 col-xs-12">
+            <div class="list-group char-list-container">
                 <div class="list-group-item list-group-item-heading">Char list:</div>
-                <button class="list-group-item" ng-repeat="char in game.chars" ng-bind="char.name"></button>
-                <button class="btn btn-primary char-list-button" style="text-align: center;">
+                <div class="char-list">
+                    <a class="list-group-item" style="cursor: pointer;"
+                       ng-repeat="char in game.chars"
+                       ng-bind="char.name"
+                       ng-click="game.selectedChar = char"
+                       ng-class="{'list-group-item-danger': char == game.selectedChar}">
+                    </a>
+                    <div class="list-group-item" ng-if="game.chars.length == 0">
+                        <span class="text-info">Char list is empty</span>
+                    </div>
+                </div>
+                <a ng-href="/new_char" class="btn btn-success form-control" style="text-align: center;">
                     Add new char
-                </button>
+                </a>
             </div>
         </div>
-        <div class="col-md-8 col-sm-9 col-xs-6">
+        <div class="col-md-8 col-sm-9 col-xs-12">
+            <div class="col-xs-6">
 
+            </div>
+            <div class="col-xs-6">
+                <img ng-src="" alt="character-image" />
+            </div>
         </div>
     </div>
 </div>

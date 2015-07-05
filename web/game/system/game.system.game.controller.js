@@ -2,14 +2,13 @@
     angular.module('system').controller('GameController', GameController);
 
     GameController.$inject = [
-        'clankService',
-        'charService',
-        'charModel'
+        'charService'
     ];
 
-    function GameController(clank, char, charModel) {
+    function GameController(char) {
         var self = this;
         this.chars = [];
+        this.selectedChar = null;
         this.getChars = getChars;
 
         function getChars() {

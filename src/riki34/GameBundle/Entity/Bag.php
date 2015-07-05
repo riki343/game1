@@ -26,14 +26,14 @@ class Bag implements RESTEntity
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="charID", type="integer", nullable=true, options={"default" = null})
+     * @ORM\Column(name="char_id", type="integer")
      */
     private $charID;
 
     /**
      * @var PlayerChar
-     * @ORM\OneToOne(targetEntity="PlayerChar", inversedBy="bag")
+     * @ORM\ManyToOne(targetEntity="PlayerChar", inversedBy="bag")
+     * @ORM\JoinColumn(name="char_id", referencedColumnName="id")
      */
     private $char;
 
@@ -97,6 +97,17 @@ class Bag implements RESTEntity
     }
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->items = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->armors = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->weapons = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->capacity = 50;
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -104,16 +115,6 @@ class Bag implements RESTEntity
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Get capacity
-     *
-     * @return integer 
-     */
-    public function getCapacity()
-    {
-        return $this->capacity;
     }
 
     /**
@@ -140,29 +141,6 @@ class Bag implements RESTEntity
     }
 
     /**
-     * Set char
-     *
-     * @param \riki34\GameBundle\Entity\User $char
-     * @return Bag
-     */
-    public function setChar(\riki34\GameBundle\Entity\User $char = null)
-    {
-        $this->char = $char;
-
-        return $this;
-    }
-
-    /**
-     * Get char
-     *
-     * @return \riki34\GameBundle\Entity\User 
-     */
-    public function getChar()
-    {
-        return $this->char;
-    }
-
-    /**
      * Set capacity
      *
      * @param integer $capacity
@@ -174,14 +152,38 @@ class Bag implements RESTEntity
 
         return $this;
     }
+
     /**
-     * Constructor
+     * Get capacity
+     *
+     * @return integer 
      */
-    public function __construct()
+    public function getCapacity()
     {
-        $this->items = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->armors = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->weapons = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->capacity;
+    }
+
+    /**
+     * Set char
+     *
+     * @param \riki34\GameBundle\Entity\PlayerChar $char
+     * @return Bag
+     */
+    public function setChar(\riki34\GameBundle\Entity\PlayerChar $char = null)
+    {
+        $this->char = $char;
+
+        return $this;
+    }
+
+    /**
+     * Get char
+     *
+     * @return \riki34\GameBundle\Entity\PlayerChar 
+     */
+    public function getChar()
+    {
+        return $this->char;
     }
 
     /**

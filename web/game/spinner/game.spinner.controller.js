@@ -1,5 +1,5 @@
 (function () {
-    angular.module('query').controller('SpinnerController', SpinnerController);
+    angular.module('spinner').controller('SpinnerController', SpinnerController);
 
     SpinnerController.$inject = [
         'spinnerService'

@@ -5,3 +5,40 @@ riki34_game:
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+riki34_game_level1:
+    pattern:   /{some}
+    defaults: { _controller: riki34GameBundle:Index:index }
+
+riki34_game_level1_1:
+    defaults: { _controller: riki34GameBundle:Index:index }
+    pattern:   /{some}/
+
+riki34_game_level2:
+    defaults: { _controller: riki34GameBundle:Index:index }
+    pattern:   /{some}/{some2}
+
+riki34_game_level2_2:
+    defaults: { _controller: riki34GameBundle:Index:index }
+    pattern:   /{some}/{some2}/
+
+riki34_game_level3:
+    defaults: { _controller: riki34GameBundle:Index:index }
+    pattern:   /{some}/{some2}/{some3}
+
+riki34_game_level3_3:
+    defaults: { _controller: riki34GameBundle:Index:index }
+    pattern:   /{some}/{some2}/{some3}/
+
+riki34_game_level4:
+    defaults: { _controller: riki34GameBundle:Index:index }
+    pattern:   /{some}/{some2}/{some3}/{some4}
+
+riki34_game_level4_4:
+    defaults: { _controller: riki34GameBundle:Index:index }
+    pattern:   /{some}/{some2}/{some3}/{some4}/
+
+riki34_game_level5:
+    defaults: { _controller: riki34GameBundle:Index:index }
+    pattern:   /{some}/{some2}/{some3}/{some4}/{some5}
+
