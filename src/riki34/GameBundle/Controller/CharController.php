@@ -19,6 +19,7 @@ class CharController extends Controller {
      */
     public function addCharAction(Request $request) {
         $data = json_decode($request->getContent(), true);
+
         return $this->get('game.char')->addChar($data);
     }
 }
