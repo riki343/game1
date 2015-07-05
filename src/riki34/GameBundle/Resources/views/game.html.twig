@@ -7,7 +7,8 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ path('fos_js_routing_js', { 'callback': 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('vendor/js/pixi.min.js') }}"></script>
 
     <script src="{{ asset('vendor/js/angular.min.js') }}"></script>
     <script src="{{ asset('vendor/js/angular-route.min.js') }}"></script>
@@ -32,24 +33,30 @@
 
     <script src="{{ asset('game/game.query.js') }}"></script>
     <script src="{{ asset('game/game.system.js') }}"></script>
+
+    <script src="{{ asset('game/game.js') }}"></script>
+    <script src="{{ asset('game/game/game.pixi.directive.js') }}"></script>
+
     <script src="{{ asset('game/game.core.js') }}"></script>
 
     <script src="{{ asset('game/query/game.query.execute.service.js') }}"></script>
+    <script src="{{ asset('game/query/game.query.level.loader.js') }}"></script>
     <script src="{{ asset('game/query/game.query.char.service.js') }}"></script>
     <script src="{{ asset('game/query/game.query.file_reader.js') }}"></script>
     <script src="{{ asset('game/query/game.query.resources.js') }}"></script>
     <script src="{{ asset('game/query/game.query.resource_loader.js') }}"></script>
     <script src="{{ asset('game/core/game.core.clank.service.js') }}"></script>
+    <script src="{{ asset('game/game/game.canvas.engine.service.js') }}"></script>
 
     <script src="{{ asset('game/system/game.system.global.controller.js') }}"></script>
     <script src="{{ asset('game/system/game.system.game.controller.js') }}"></script>
     <script src="{{ asset('game/core/game.core.controller.js') }}"></script>
     <script src="{{ asset('game/system/game.system.new_char.controller.js') }}"></script>
+    <script src="{{ asset('game/spinner/game.spinner.controller.js') }}"></script>
+    <script src="{{ asset('game/system/game.system.level.controller.js') }}"></script>
 
     <script src="{{ asset('game/system/game.system.config.js') }}"></script>
     <script src="{{ asset('game/core/game.core.config.js') }}"></script>
-
-    <script src="{{ asset('game/spinner/game.spinner.controller.js') }}"></script>
 
     <base href="/" />
 {% endblock %}
@@ -71,13 +78,19 @@
             </li>
 
             <li>
+                <a ng-href="/test">
+                    {{ 'Test' | trans }}
+                </a>
+            </li>
+
+            <li>
                 <a href="{{ path('logout') }}" target="_self">
                     {{ 'Logout' | trans }}
                 </a>
             </li>
         </ul>
     </nav>
-    <button type="button" class="btn btn-default" data-toggle="offcanvas" data-target="#left-side-bar" data-canvas="body">
+    <button type="button" class="btn btn-default pull-left" data-toggle="offcanvas" data-target="#left-side-bar" data-canvas="body">
         {{ 'Menu' | trans }}
     </button>
 {% endblock %}

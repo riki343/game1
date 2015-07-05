@@ -296,7 +296,6 @@ class PlayerChar implements RESTEntity
             'id' => $this->id,
             'name' => $this->name,
             'created' => $this->created->format('Y-m-d H:i:s'),
-            'bagID' => $this->bagID,
             'agility' => $this->agility,
             'energy' => $this->energy,
             'energyRegeneration' => $this->energyRegeneration,

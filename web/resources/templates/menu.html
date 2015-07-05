@@ -14,6 +14,7 @@
                         <span class="text-info">Char list is empty</span>
                     </div>
                 </div>
+
                 <a ng-href="/new_char" class="btn btn-success form-control" style="text-align: center;">
                     Add new char
                 </a>
@@ -26,6 +27,10 @@
             <div class="col-xs-6">
                 <img ng-src="" alt="character-image" />
             </div>
+
+            <a class="btn btn-primary" ng-href="{{ '/game/' + game.selectedChar.id }}">
+                Enter
+            </a>
         </div>
     </div>
 </div>

@@ -5,6 +5,7 @@
         'validation',
         'query',
         'model',
-        'system'
+        'system',
+        'game'
     ]);
 })(angular);

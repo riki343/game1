@@ -16,6 +16,14 @@
                 'templateUrl': TEMPLATES.game.newChar,
                 'controller': 'NewCharController as newChar'
             })
+            .when('/game/:char_id', {
+                'templateUrl': TEMPLATES.game.layout,
+                'controller': 'LevelController as level'
+            })
+            .when('/test', {
+                //'templateUrl': TEMPLATES.game.layout,
+                //'controller': 'LevelController as level'
+            })
         ;
     }
 })(angular);
