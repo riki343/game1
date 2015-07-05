@@ -104,6 +104,17 @@ class Location implements RESTEntity
         );
     }
 
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'file' => $this->file,
+            'height' => $this->height,
+            'width' => $this->width,
+            'levelRequired' => $this->levelRequired,
+        );
+    }
+
     /**
      * @return array
      */

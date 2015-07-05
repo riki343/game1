@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Monster
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="monsters")
  * @ORM\Entity
  */
-class Monster
+class Monster implements RESTEntity
 {
     /**
      * @var integer
@@ -55,6 +56,13 @@ class Monster
      * @ORM\Column(name="fraction_id", type="integer", nullable=true, options={ "default" = null })
      */
     private $fractionID;
+
+    /**
+     * @var Fraction
+     * @ORM\ManyToOne(targetEntity="Fraction")
+     * @ORM\JoinColumn(name="fraction_id", referencedColumnName="id")
+     */
+    private $fraction;
 
     /**
      * @var integer
@@ -122,6 +130,49 @@ class Monster
      * @ORM\JoinColumn(name="location_id", referencedColumnName="id")
      */
     private $location;
+
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'modelID' => $this->modelID,
+            'model' => $this->model->getInArray(),
+            'agility' => $this->agility,
+            'energyRegeneration' => $this->energyRegeneration,
+            'fractionID' => $this->fractionID,
+            'fraction' => $this->fraction->getInArray(),
+            'hp' => $this->hp,
+            'strength' => $this->strength,
+            'typeID' => $this->typeID,
+            'hpRegeneration' => $this->hpRegeneration,
+            'intelligence' => $this->intelligence,
+            'level' => $this->level,
+            'location' => $this->location->getInArray(),
+            'locationID' => $this->locationID,
+            'mpRegeneration' => $this->mpRegeneration,
+            'mp' => $this->mp,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'modelID' => $this->modelID,
+            'agility' => $this->agility,
+            'energyRegeneration' => $this->energyRegeneration,
+            'fractionID' => $this->fractionID,
+            'hp' => $this->hp,
+            'strength' => $this->strength,
+            'typeID' => $this->typeID,
+            'hpRegeneration' => $this->hpRegeneration,
+            'intelligence' => $this->intelligence,
+            'level' => $this->level,
+            'locationID' => $this->locationID,
+            'mpRegeneration' => $this->mpRegeneration,
+            'mp' => $this->mp,
+        );
+    }
 
     /**
      * Get id
@@ -522,5 +573,28 @@ class Monster
     public function getLocation()
     {
         return $this->location;
+    }
+
+    /**
+     * Set fraction
+     *
+     * @param \riki34\GameBundle\Entity\Fraction $fraction
+     * @return Monster
+     */
+    public function setFraction(\riki34\GameBundle\Entity\Fraction $fraction = null)
+    {
+        $this->fraction = $fraction;
+
+        return $this;
+    }
+
+    /**
+     * Get fraction
+     *
+     * @return \riki34\GameBundle\Entity\Fraction 
+     */
+    public function getFraction()
+    {
+        return $this->fraction;
     }
 }

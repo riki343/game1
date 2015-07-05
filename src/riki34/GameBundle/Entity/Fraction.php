@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Fraction
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="fractions")
  * @ORM\Entity
  */
-class Fraction
+class Fraction implements RESTEntity
 {
     /**
      * @var integer
@@ -42,6 +43,23 @@ class Fraction
      */
     private $homeLocationID;
 
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'homeLocationID' => $this->homeLocationID,
+            'icon' => $this->icon,
+            'name' => $this->name,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'homeLocationID' => $this->homeLocationID,
+            'icon' => $this->icon,
+            'name' => $this->name,
+        );
+    }
 
     /**
      * Get id

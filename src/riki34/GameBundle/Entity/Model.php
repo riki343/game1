@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Model
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="models")
  * @ORM\Entity
  */
-class Model
+class Model implements RESTEntity
 {
     /**
      * @var integer
@@ -35,6 +36,21 @@ class Model
      */
     private $image;
 
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'image' => $this->image,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'image' => $this->image,
+        );
+    }
 
     /**
      * Get id

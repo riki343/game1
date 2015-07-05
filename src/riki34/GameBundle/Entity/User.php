@@ -4,6 +4,7 @@ namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Extra\JSONTransformer;
 use riki34\GameBundle\Interfaces\RESTEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\Encoder\EncoderFactory;
@@ -126,16 +127,64 @@ class User implements UserInterface, RESTEntity, \Serializable
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="PlayerChar", mappedBy="chars")
+     * @ORM\OneToMany(targetEntity="PlayerChar", mappedBy="user")
      */
     private $chars;
+
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        $this->roles = new ArrayCollection();
+        $this->name = null;
+        $this->surname = null;
+        $this->languageID = null;
+        $this->deleted = false;
+        $this->registered = new \DateTime();
+        $this->lastactive = $this->registered;
+        $this->active = true;
+        $this->chars = new ArrayCollection();
+        $this->gainedAchievements = new ArrayCollection();
+    }
 
     /**
      * @return array
      */
     public function getInArray() {
         return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'active' => $this->active,
+            'avatar' => $this->avatar,
+            'chars' => JSONTransformer::getSingleInArray($this->chars),
+            'deleted' => $this->deleted,
+            'email' => $this->email,
+            'gainedAchievements' => JSONTransformer::arrayToJsonArray($this->gainedAchievements),
+            'languageID' => $this->languageID,
+            'lastactive' => $this->lastactive->format('Y-m-d H:i:s'),
+            'skype' => $this->skype,
+            'surname' => $this->surname,
+            'username' => $this->username,
+            'registered' => $this->registered->format('Y-m-d H:i:s'),
+        );
+    }
 
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'active' => $this->active,
+            'avatar' => $this->avatar,
+            'deleted' => $this->deleted,
+            'chars' => $this->chars->count(),
+            'email' => $this->email,
+            'gainedAchievements' => $this->gainedAchievements->count(),
+            'languageID' => $this->languageID,
+            'lastactive' => $this->lastactive->format('Y-m-d H:i:s'),
+            'skype' => $this->skype,
+            'surname' => $this->surname,
+            'username' => $this->username,
+            'registered' => $this->registered->format('Y-m-d H:i:s'),
         );
     }
 
@@ -199,20 +248,6 @@ class User implements UserInterface, RESTEntity, \Serializable
      * @inheritDoc
      */
     public function eraseCredentials() { }
-
-    /**
-     * Constructor
-     */
-    public function __construct() {
-        $this->roles = new ArrayCollection();
-        $this->name = null;
-        $this->surname = null;
-        $this->languageID = null;
-        $this->deleted = false;
-        $this->registered = new \DateTime();
-        $this->lastactive = $this->registered;
-        $this->active = true;
-    }
 
     /**
      * Get id

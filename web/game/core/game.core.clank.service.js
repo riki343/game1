@@ -21,10 +21,10 @@
         function connect() {
             if (angular.isDefined(Clank)) {
                 self.clank = Clank.connect('ws://game.tld:8080');
-                self.clank.on("socket/connect", function (session) {
+                self.clank.on("game/connect", function (session) {
                     self.session = session;
                 });
-                self.clank.on("socket/disconnect", function (error) {
+                self.clank.on("game/disconnect", function (error) {
                     console.log("Disconnected for " + error.reason + " with code " + error.code);
                     self.clank = null;
                     self.session = null;

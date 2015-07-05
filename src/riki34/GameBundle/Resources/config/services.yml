@@ -10,3 +10,6 @@ services:
     game.locationLoader:
         class: riki34\GameBundle\Service\LocationLoader
         arguments: ["@doctrine.orm.default_entity_manager", "@game.JSONLoader", "@game.RESTResponse"]
+
+    game.topic:
+        class: riki34\GameBundle\Topic\GameTopic

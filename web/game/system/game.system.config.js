@@ -9,8 +9,8 @@
     function systemConfig($routeProvider, TEMPLATES) {
         $routeProvider
             .when('/', {
-                templateUrl: TEMPLATES.game.layout,
-                controller: 'GameController'
+                'templateUrl': TEMPLATES.game.mainMenu,
+                'controller': 'GameController as game'
             });
     }
 })(angular);

@@ -4,6 +4,7 @@ namespace riki34\GameBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Extra\JSONTransformer;
 use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
@@ -32,7 +33,7 @@ class PlayerChar implements RESTEntity
 
     /**
      * @var integer
-     * @ORM\Column(name="user_id", type="integer")
+     * @ORM\Column(name="user_id", type="integer", nullable=true, options={"default" = null})
      */
     private $userID;
 
@@ -53,7 +54,7 @@ class PlayerChar implements RESTEntity
     /**
      * @var integer
      *
-     * @ORM\Column(name="model_id", type="integer")
+     * @ORM\Column(name="model_id", type="integer", nullable=true, options={"default" = null})
      */
     private $modelID;
 
@@ -66,7 +67,7 @@ class PlayerChar implements RESTEntity
 
     /**
      * @var integer
-     * @ORM\Column(name="location_id", type="integer", nullable=true, options={"default" = true})
+     * @ORM\Column(name="location_id", type="integer", nullable=true, options={"default" = null})
      */
     private $locationID;
 
@@ -80,16 +81,30 @@ class PlayerChar implements RESTEntity
     /**
      * @var integer
      *
-     * @ORM\Column(name="fraction_id", type="integer")
+     * @ORM\Column(name="fraction_id", type="integer", nullable=true, options={"default" = null})
      */
     private $fractionID;
 
     /**
+     * @var Fraction
+     * @ORM\ManyToOne(targetEntity="Fraction")
+     * @ORM\JoinColumn(name="fraction_id", referencedColumnName="id")
+     */
+    private $fraction;
+
+    /**
      * @var integer
      *
-     * @ORM\Column(name="specialization_id", type="integer")
+     * @ORM\Column(name="specialization_id", type="integer", nullable=true, options={"default" = null})
      */
     private $specializationID;
+
+    /**
+     * @var Specialization
+     * @ORM\ManyToOne(targetEntity="Specialization")
+     * @ORM\JoinColumn(name="specialization_id", referencedColumnName="id")
+     */
+    private $specialization;
 
     /**
      * @var integer
@@ -183,13 +198,13 @@ class PlayerChar implements RESTEntity
 
     /**
      * @var integer
-     * @ORM\Column(name="bag_id", type="integer")
+     * @ORM\Column(name="bag_id", type="integer", nullable=true, options={"default" = null})
      */
     private $bagID;
 
     /**
      * @var Bag
-     * @ORM\OneToOne(targetEntity="Bag", cascade={"remove", "persist"})
+     * @ORM\OneToOne(targetEntity="Bag", mappedBy="char", cascade={"remove", "persist"})
      * @ORM\JoinColumn(name="bag_id", referencedColumnName="id")
      */
     private $bag;
@@ -238,10 +253,58 @@ class PlayerChar implements RESTEntity
         $this->specialization = $specialization;
     }
 
-    /// TODO: implement function
     public function getInArray() {
         return array(
             'id' => $this->id,
+            'name' => $this->name,
+            'created' => $this->created->format('Y-m-d H:i:s'),
+            'bag' => $this->bag,
+            'agility' => $this->agility,
+            'energy' => $this->energy,
+            'energyRegeneration' => $this->energyRegeneration,
+            'experience' => $this->experience,
+            'fraction' => $this->fraction,
+            'guild' => $this->guild,
+            'hp' => $this->hp,
+            'hpRegeneration' => $this->hpRegeneration,
+            'intelligence' => $this->intelligence,
+            'level' => $this->level,
+            'location' => $this->location,
+            'model' => $this->model,
+            'mp' => $this->mp,
+            'mpRegeneration' => $this->mpRegeneration,
+            'sex' => $this->sex,
+            'skills' => JSONTransformer::arrayToJsonArray($this->skills),
+            'specialization' => $this->specialization,
+            'strength' => $this->strength,
+            'userID' => $this->userID,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'created' => $this->created->format('Y-m-d H:i:s'),
+            'bagID' => $this->bagID,
+            'agility' => $this->agility,
+            'energy' => $this->energy,
+            'energyRegeneration' => $this->energyRegeneration,
+            'experience' => $this->experience,
+            'fractionID' => $this->fractionID,
+            'guildID' => $this->guildID,
+            'hp' => $this->hp,
+            'hpRegeneration' => $this->hpRegeneration,
+            'intelligence' => $this->intelligence,
+            'level' => $this->level,
+            'locationID' => $this->locationID,
+            'modelID' => $this->modelID,
+            'mp' => $this->mp,
+            'mpRegeneration' => $this->mpRegeneration,
+            'sex' => $this->sex,
+            'specialization' => $this->specialization,
+            'strength' => $this->strength,
+            'userID' => $this->userID,
         );
     }
 
@@ -1003,5 +1066,31 @@ class PlayerChar implements RESTEntity
     public function getCompletedQuests()
     {
         return $this->completedQuests;
+    }
+
+    /**
+     * Set fraction
+     *
+     * @param \riki34\GameBundle\Entity\Fraction $fraction
+     * @return PlayerChar
+     */
+    public function setFraction(\riki34\GameBundle\Entity\Fraction $fraction = null)
+    {
+        $this->fraction = $fraction;
+
+        return $this;
+    }
+
+    /**
+     * Set specialization
+     *
+     * @param \riki34\GameBundle\Entity\Specialization $specialization
+     * @return PlayerChar
+     */
+    public function setSpecialization(\riki34\GameBundle\Entity\Specialization $specialization = null)
+    {
+        $this->specialization = $specialization;
+
+        return $this;
     }
 }

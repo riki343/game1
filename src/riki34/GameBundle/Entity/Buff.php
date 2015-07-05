@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Buff
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="buffs")
  * @ORM\Entity
  */
-class Buff
+class Buff implements RESTEntity
 {
     /**
      * @var integer
@@ -98,6 +99,40 @@ class Buff
      */
     private $duration;
 
+
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'agility' => $this->agility,
+            'intelligence' => $this->intelligence,
+            'strength' => $this->strength,
+            'cooldown' => $this->cooldown,
+            'duration' => $this->duration,
+            'effect' => $this->effect,
+            'magicAttackBonus' => $this->magicAttackBonus,
+            'magicDefenceBonus' => $this->magicDefenceBonus,
+            'physicAttackBonus' => $this->physicAttackBonus,
+            'physicDefenceBonus' => $this->physicDefenceBonus,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'agility' => $this->agility,
+            'intelligence' => $this->intelligence,
+            'strength' => $this->strength,
+            'cooldown' => $this->cooldown,
+            'duration' => $this->duration,
+            'effect' => $this->effect,
+            'magicAttackBonus' => $this->magicAttackBonus,
+            'magicDefenceBonus' => $this->magicDefenceBonus,
+            'physicAttackBonus' => $this->physicAttackBonus,
+            'physicDefenceBonus' => $this->physicDefenceBonus,
+        );
+    }
 
     /**
      * Get id

@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Armor
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="armors")
  * @ORM\Entity
  */
-class Armor
+class Armor implements RESTEntity
 {
     /**
      * @var integer
@@ -105,6 +106,40 @@ class Armor
      */
     private $typeID;
 
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'agilityBonus' => $this->agilityBonus,
+            'cost' => $this->cost,
+            'intelligenceBonus' => $this->intelligenceBonus,
+            'magicAttackBonus' => $this->magicAttackBonus,
+            'magicDefenceBonus' => $this->magicDefenceBonus,
+            'model' => $this->model->getInArray(),
+            'modelID' => $this->modelID,
+            'physicAttackBonus' => $this->physicAttackBonus,
+            'physicDefenceBonus' => $this->physicDefenceBonus,
+            'strengthBonus' => $this->strengthBonus,
+            'typeID' => $this->typeID,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'agilityBonus' => $this->agilityBonus,
+            'cost' => $this->cost,
+            'intelligenceBonus' => $this->intelligenceBonus,
+            'magicAttackBonus' => $this->magicAttackBonus,
+            'magicDefenceBonus' => $this->magicDefenceBonus,
+            'modelID' => $this->modelID,
+            'physicAttackBonus' => $this->physicAttackBonus,
+            'physicDefenceBonus' => $this->physicDefenceBonus,
+            'strengthBonus' => $this->strengthBonus,
+            'typeID' => $this->typeID,
+        );
+    }
 
     /**
      * Get id

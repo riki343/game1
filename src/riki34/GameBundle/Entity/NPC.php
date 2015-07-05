@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * NPC
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="NPC")
  * @ORM\Entity
  */
-class NPC
+class NPC implements RESTEntity
 {
     /**
      * @var integer
@@ -64,6 +65,13 @@ class NPC
     private $bagID;
 
     /**
+     * @var Bag
+     * @ORM\OneToOne(targetEntity="Bag")
+     * @ORM\JoinColumn(name="bagID", referencedColumnName="id")
+     */
+    private $bag;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="immortal", type="boolean")
@@ -89,6 +97,34 @@ class NPC
      */
     private $locationPoint;
 
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'modelID' => $this->modelID,
+            'model' => $this->model->getInArray(),
+            'locationID' => $this->locationID,
+            'location' => $this->location,
+            'bagID' => $this->bagID,
+            'bag' => $this->bag->getInArray(),
+            'immortal' => $this->immortal,
+            'locationPoint' => $this->locationPoint,
+            'typeID' => $this->typeID,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'modelID' => $this->modelID,
+            'locationID' => $this->locationID,
+            'bagID' => $this->bagID,
+            'immortal' => $this->immortal,
+            'locationPoint' => $this->locationPoint,
+            'typeID' => $this->typeID,
+        );
+    }
 
     /**
      * Get id
@@ -328,5 +364,28 @@ class NPC
     public function getLocation()
     {
         return $this->location;
+    }
+
+    /**
+     * Set bag
+     *
+     * @param \riki34\GameBundle\Entity\Bag $bag
+     * @return NPC
+     */
+    public function setBag(\riki34\GameBundle\Entity\Bag $bag = null)
+    {
+        $this->bag = $bag;
+
+        return $this;
+    }
+
+    /**
+     * Get bag
+     *
+     * @return \riki34\GameBundle\Entity\Bag 
+     */
+    public function getBag()
+    {
+        return $this->bag;
     }
 }

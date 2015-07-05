@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Skill
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="skills")
  * @ORM\Entity
  */
-class Skill
+class Skill implements RESTEntity
 {
     /**
      * @var integer
@@ -91,6 +92,37 @@ class Skill
      */
     private $icon;
 
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'attackRange' => $this->attackRange,
+            'basicDamage' => $this->basicDamage,
+            'basicHeal' => $this->basicHeal,
+            'cooldown' => $this->cooldown,
+            'energyRequired' => $this->energyRequired,
+            'icon' => $this->icon,
+            'levelRequired' => $this->levelRequired,
+            'mpRequired' => $this->mpRequired,
+            'name' => $this->name,
+            'type' => $this->type,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'attackRange' => $this->attackRange,
+            'basicDamage' => $this->basicDamage,
+            'basicHeal' => $this->basicHeal,
+            'cooldown' => $this->cooldown,
+            'energyRequired' => $this->energyRequired,
+            'icon' => $this->icon,
+            'levelRequired' => $this->levelRequired,
+            'mpRequired' => $this->mpRequired,
+            'name' => $this->name,
+            'type' => $this->type,
+        );
+    }
 
     /**
      * Get id

@@ -6,6 +6,9 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+
     <script src="{{ asset('vendor/js/angular.min.js') }}"></script>
     <script src="{{ asset('vendor/js/angular-route.min.js') }}"></script>
     <script src="{{ asset('vendor/js/angular-animate.min.js') }}"></script>
@@ -15,22 +18,21 @@
 
     <!-- ------------- Modules ------------- -->
     <script src="{{ asset('game/game.global.js') }}"></script>
-    <script src="{{ asset('game/game.query.js') }}"></script>
     <script src="{{ asset('game/game.model.js') }}"></script>
+    <script src="{{ asset('game/game.query.js') }}"></script>
     <script src="{{ asset('game/game.system.js') }}"></script>
     <script src="{{ asset('game/game.core.js') }}"></script>
 
     <!-- ------------- Constants ------------- -->
     <script src="{{ asset('game/global/game.global.consts.js') }}"></script>
 
-    <!-- ------------- Configurations ------------- -->
-    <script src="{{ asset('game/system/game.system.config.js') }}"></script>
-    <script src="{{ asset('game/core/game.core.config.js') }}"></script>
-
     <!-- ------------- Models ------------- -->
     <script src="{{ asset('game/model/game.model.sprite.js') }}"></script>
+    <script src="{{ asset('game/model/game.model.char.js') }}"></script>
 
     <!-- ------------- Services ------------- -->
+    <script src="{{ asset('game/query/game.query.execute.service.js') }}"></script>
+    <script src="{{ asset('game/query/game.query.char.service.js') }}"></script>
     <script src="{{ asset('game/query/game.query.file_reader.js') }}"></script>
     <script src="{{ asset('game/query/game.query.spinner.js') }}"></script>
     <script src="{{ asset('game/query/game.query.resources.js') }}"></script>
@@ -42,6 +44,10 @@
     <script src="{{ asset('game/system/game.system.game.controller.js') }}"></script>
     <script src="{{ asset('game/core/game.core.controller.js') }}"></script>
 
+    <!-- ------------- Configurations ------------- -->
+    <script src="{{ asset('game/system/game.system.config.js') }}"></script>
+    <script src="{{ asset('game/core/game.core.config.js') }}"></script>
+
     <base href="/" />
 {% endblock %}
 
@@ -49,12 +55,27 @@
     <nav id="left-side-bar" class="navmenu navmenu-default navmenu-fixed-left offcanvas">
         <h4 class="page-header" align="center">Menu</h4>
         <ul class="nav navmenu-nav">
-            <li class="active"><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+            <li class="active">
+                <a ng-href="/">
+                    {{ 'Game' | trans }}
+                </a>
+            </li>
+
+            <li>
+                <a ng-href="/forum">
+                    {{ 'Forum' | trans }}
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ path('logout') }}" target="_self">
+                    {{ 'Logout' | trans }}
+                </a>
+            </li>
         </ul>
     </nav>
     <button type="button" class="btn btn-default" data-toggle="offcanvas" data-target="#left-side-bar" data-canvas="body">
-        Menu >>
+        {{ 'Menu' | trans }}
     </button>
 {% endblock %}
 
@@ -65,5 +86,5 @@
         </div>
     </div>
 
-    <div ng-view>Enable javascript in your browser</div>
+    <div id="view-container" ng-view>Enable javascript in your browser</div>
 {% endblock %}

@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Decoration
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="decorations")
  * @ORM\Entity
  */
-class Decoration
+class Decoration implements RESTEntity
 {
     /**
      * @var integer
@@ -76,6 +77,31 @@ class Decoration
      */
     private $location;
 
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'destroyable' => $this->destroyable,
+            'height' => $this->height,
+            'width' => $this->width,
+            'location' => $this->location->getInArray(),
+            'locationID' => $this->locationID,
+            'model' => $this->model->getInArray(),
+            'modelID' => $this->modelID,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'destroyable' => $this->destroyable,
+            'height' => $this->height,
+            'width' => $this->width,
+            'locationID' => $this->locationID,
+            'modelID' => $this->modelID,
+        );
+    }
 
     /**
      * Get id

@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Item
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="items")
  * @ORM\Entity
  */
-class Item
+class Item implements RESTEntity
 {
     /**
      * @var integer
@@ -56,6 +57,26 @@ class Item
      */
     private $model;
 
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'cost' => $this->cost,
+            'model' => $this->model->getInArray(),
+            'modelID' => $this->modelID,
+            'questItem' => $this->questItem,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'cost' => $this->cost,
+            'modelID' => $this->modelID,
+            'questItem' => $this->questItem,
+        );
+    }
 
     /**
      * Get id

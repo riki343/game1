@@ -4,6 +4,8 @@ namespace riki34\GameBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Extra\JSONTransformer;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * QuestCondition
@@ -11,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="quest_conditions")
  * @ORM\Entity
  */
-class QuestCondition
+class QuestCondition implements RESTEntity
 {
     /**
      * @var integer
@@ -122,6 +124,37 @@ class QuestCondition
     /// TODO: need to implement BOSS
     private $boss;
 
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'description' => $this->description,
+            'boss' => $this->boss,
+            'bossID' => $this->bossID,
+            'loot' => JSONTransformer::arrayToJsonArray($this->loot),
+            'lootCount' => $this->lootCount,
+            'lootID' => $this->lootID,
+            'monster' => $this->monster->getInArray(),
+            'monsterCount' => $this->monsterCount,
+            'monsterID' => $this->monsterID,
+            'playerCount' => $this->playerCount,
+            'playerFraction' => $this->playerFraction->getInArray(),
+            'playerFractionID' => $this->playerFractionID,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'description' => $this->description,
+            'bossID' => $this->bossID,
+            'lootCount' => $this->lootCount,
+            'lootID' => $this->lootID,
+            'monsterCount' => $this->monsterCount,
+            'monsterID' => $this->monsterID,
+            'playerCount' => $this->playerCount,
+            'playerFractionID' => $this->playerFractionID,
+        );
+    }
 
     /**
      * Get id

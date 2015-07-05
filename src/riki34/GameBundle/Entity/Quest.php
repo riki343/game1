@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Quest
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="quests")
  * @ORM\Entity
  */
-class Quest
+class Quest implements RESTEntity
 {
     /**
      * @var integer
@@ -96,6 +97,38 @@ class Quest
      * @ORM\JoinColumn(name="complete_npc_id", referencedColumnName="id")
      */
     private $completeNPC;
+
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'completeLocation' => $this->completeLocation->getInArray(),
+            'completeLocationID' => $this->completeLocationID,
+            'completeNPC' => $this->completeNPC->getInArray(),
+            'completeNPCID' => $this->completeNPCID,
+            'description' => $this->description,
+            'levelRequired' => $this->levelRequired,
+            'parentQuestID' => $this->parentQuestID,
+            'takeLocation' => $this->takeLocation->getInArray(),
+            'takeLocationID' => $this->takeLocationID,
+            'takeNPC' => $this->takeNPC->getInArray(),
+            'takeNPCID' => $this->takeNPCID,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'completeLocationID' => $this->completeLocationID,
+            'completeNPCID' => $this->completeNPCID,
+            'description' => $this->description,
+            'levelRequired' => $this->levelRequired,
+            'parentQuestID' => $this->parentQuestID,
+            'takeLocationID' => $this->takeLocationID,
+            'takeNPCID' => $this->takeNPCID,
+        );
+    }
 
     /**
      * Get id

@@ -3,3 +3,5 @@ clank:
         port: 8080
         #host: %server_host_ip%
     session_handler: session.handler.pdo
+    topic:
+        - { name: "game", service: "game.topic" }

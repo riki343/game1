@@ -1,0 +1,16 @@
+<div id="game-menu">
+    <div class="row">
+        <div class="col-md-4 col-sm-5 col-xs-6">
+            <div class="list-group char-list">
+                <div class="list-group-item list-group-item-heading">Char list:</div>
+                <button class="list-group-item" ng-repeat="char in game.chars" ng-bind="char.name"></button>
+                <button class="btn btn-primary char-list-button" style="text-align: center;">
+                    Add new char
+                </button>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-9 col-xs-6">
+
+        </div>
+    </div>
+</div>

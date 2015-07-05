@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Weapon
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="weapons")
  * @ORM\Entity
  */
-class Weapon
+class Weapon implements RESTEntity
 {
     /**
      * @var integer
@@ -90,6 +91,36 @@ class Weapon
      */
     private $cost;
 
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'agilityBonus' => $this->agilityBonus,
+            'cost' => $this->cost,
+            'intelligenceBonus' => $this->intelligenceBonus,
+            'magicAttackBonus' => $this->magicAttackBonus,
+            'model' => $this->model->getInArray(),
+            'modelID' => $this->modelID,
+            'physicAttackBonus' => $this->physicAttackBonus,
+            'strengthBonus' => $this->strengthBonus,
+            'typeID' => $this->typeID,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'agilityBonus' => $this->agilityBonus,
+            'cost' => $this->cost,
+            'intelligenceBonus' => $this->intelligenceBonus,
+            'magicAttackBonus' => $this->magicAttackBonus,
+            'modelID' => $this->modelID,
+            'physicAttackBonus' => $this->physicAttackBonus,
+            'strengthBonus' => $this->strengthBonus,
+            'typeID' => $this->typeID,
+        );
+    }
 
     /**
      * Get id

@@ -4,6 +4,8 @@ namespace riki34\GameBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Extra\JSONTransformer;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * PlayerBag
@@ -11,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="bags")
  * @ORM\Entity
  */
-class Bag
+class Bag implements RESTEntity
 {
     /**
      * @var integer
@@ -31,7 +33,7 @@ class Bag
 
     /**
      * @var PlayerChar
-     * @ORM\OneToOne(targetEntity="User", inversedBy="bag")
+     * @ORM\OneToOne(targetEntity="PlayerChar", inversedBy="bag")
      */
     private $char;
 
@@ -71,6 +73,28 @@ class Bag
      * )
      */
     private $weapons;
+
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'armors' => JSONTransformer::arrayToJsonArray($this->armors),
+            'capacity' => $this->capacity,
+            'charID' => $this->charID,
+            'items' => JSONTransformer::arrayToJsonArray($this->items),
+            'weapons' => JSONTransformer::arrayToJsonArray($this->weapons),
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'armors' => $this->armors->count(),
+            'capacity' => $this->capacity,
+            'charID' => $this->charID,
+            'items' => $this->items->count(),
+            'weapons' => $this->weapons->count(),
+        );
+    }
 
     /**
      * Get id

@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Guild
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="guilds")
  * @ORM\Entity
  */
-class Guild
+class Guild implements RESTEntity
 {
     /**
      * @var integer
@@ -36,6 +37,13 @@ class Guild
     private $fractionID;
 
     /**
+     * @var Fraction
+     * @ORM\ManyToOne(targetEntity="Fraction")
+     * @ORM\JoinColumn(name="fractionID", referencedColumnName="id")
+     */
+    private $fraction;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="level", type="integer")
@@ -56,6 +64,28 @@ class Guild
      */
     private $bankID;
 
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'bankID' => $this->bankID,
+            'expirience' => $this->expirience,
+            'fractionID' => $this->fractionID,
+            'fraction' => $this->fraction->getInArray(),
+            'level' => $this->level,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'bankID' => $this->bankID,
+            'expirience' => $this->expirience,
+            'fractionID' => $this->fractionID,
+            'level' => $this->level,
+        );
+    }
 
     /**
      * Get id
@@ -180,5 +210,28 @@ class Guild
     public function getBankID()
     {
         return $this->bankID;
+    }
+
+    /**
+     * Set fraction
+     *
+     * @param \riki34\GameBundle\Entity\Fraction $fraction
+     * @return Guild
+     */
+    public function setFraction(\riki34\GameBundle\Entity\Fraction $fraction = null)
+    {
+        $this->fraction = $fraction;
+
+        return $this;
+    }
+
+    /**
+     * Get fraction
+     *
+     * @return \riki34\GameBundle\Entity\Fraction 
+     */
+    public function getFraction()
+    {
+        return $this->fraction;
     }
 }

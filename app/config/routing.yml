@@ -2,3 +2,6 @@ riki34_game:
     resource: "@riki34GameBundle/Controller/"
     type:     annotation
     prefix:   /
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

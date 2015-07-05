@@ -3,6 +3,7 @@
 namespace riki34\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use riki34\GameBundle\Interfaces\RESTEntity;
 
 /**
  * Achievement
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="achievements")
  * @ORM\Entity
  */
-class Achievement
+class Achievement implements RESTEntity
 {
     /**
      * @var integer
@@ -27,6 +28,20 @@ class Achievement
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
+
+    public function getInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+        );
+    }
+
+    public function getSingleInArray() {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+        );
+    }
 
 
     /**

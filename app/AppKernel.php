@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new JDare\ClankBundle\JDareClankBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
             new riki34\GameBundle\riki34GameBundle(),
         );

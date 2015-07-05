@@ -4,7 +4,8 @@
     function TEMPLATES() {
         return {
             'game': {
-                'layout': 'resources/templates/game.html'
+                'layout': 'resources/templates/game.html',
+                'mainMenu': 'resources/templates/menu.html'
             }
         }
     }
