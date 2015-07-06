@@ -20,6 +20,14 @@ class RESTResponse {
     }
 
     /**
+     * @param $object
+     * @return JsonResponse
+     */
+    public function generateResponseWithJsonObject($object) {
+        return new JsonResponse($object);
+    }
+
+    /**
      * @param array $objects
      * @return JsonResponse
      */

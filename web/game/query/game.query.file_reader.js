@@ -10,7 +10,8 @@
          * @type {{readAsDataURL: function}}
          */
         var factory = {
-            'readAsDataURL': readAsDataURL
+            'readAsDataURL': readAsDataURL,
+            'readAsImageURL': readAsImageURL
         };
 
         return factory;
@@ -61,11 +62,28 @@
             return reader;
         }
 
+        function getImageReader(deferred, scope, file) {
+            var reader = new Image();
+            reader.onload = onLoad(reader, deferred, scope, file);
+            reader.onerror = onError(reader, deferred, scope, file);
+            reader.onprogress = onProgress(scope, file);
+            return reader;
+        }
+
         function readAsDataURL(file, scope) {
             var deferred = $q.defer();
 
             var reader = getReader(deferred, scope, file);
             reader.readAsDataURL(file);
+
+            return deferred.promise;
+        }
+
+        function readAsImageURL(file, scope) {
+            var deferred = $q.defer();
+
+            var reader = getImageReader(deferred, scope, file);
+            reader.src = file;
 
             return deferred.promise;
         }

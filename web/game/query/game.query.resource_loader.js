@@ -3,10 +3,12 @@
 
     resourceLoader.$inject = [
         '$rootScope',
-        'fileReaderService'
+        'fileReaderService',
+        '$q',
+        'spinnerService'
     ];
 
-    function resourceLoader ($scope, $fileReader) {
+    function resourceLoader ($scope, $fileReader, $q, spinner) {
         var self = this;
 
         this.resourcesLoading = {};
@@ -44,6 +46,7 @@
         var loader = {
             'loadResource': loadResource,
             'loadResources': loadResources,
+            'loadImageResource': loadImageResource,
             'onResourcesLoadingStart': onResourcesLoadingStart,
             'onResourcesLoadingEnd': onResourcesLoadingEnd,
             'onTotalProgressChanged': onTotalProgressChanged
@@ -51,11 +54,23 @@
 
         return loader;
 
+        function loadImageResource(resource) {
+            var deffered = $q.defer();
+            var image = new Image();
+            image.onload = function () {
+                deffered.resolve(image);
+            };
+            //spinner.addPromise(deffered.promise);
+            image.src = resource;
+            return image;
+            //return deffered.promise;
+        }
+
         function loadResource(resource) {
             if (angular.isDefined(self.resourcesCache[resource])) {
                 return self.resourcesCache[resource];
             } else {
-                $fileReader.readAsDataURL(resource, $scope);
+                return $fileReader.readAsImageURL(resource, $scope);
             }
         }
 

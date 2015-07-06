@@ -6,6 +6,7 @@
         'query',
         'model',
         'system',
-        'game'
+        'game',
+        'location_editor'
     ]);
 })(angular);

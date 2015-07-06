@@ -45,7 +45,7 @@ class LocationLoader {
         );
         $location->setResources($resources);
 
-        return $this->response->generateResponseWithObject($location);
+        return $location->getInArray();
     }
 
     /**
@@ -58,5 +58,10 @@ class LocationLoader {
         $this->jsonLoader->storeFile($location->getFile(), $resources);
         $message = "Location saved";
         return $this->response->generateSuccessResponse(array($message));
+    }
+
+
+    public function loadLocationEditor() {
+        return $this->jsonLoader->loadFile("resources/level_editor_resources.json");
     }
 }

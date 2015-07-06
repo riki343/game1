@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LocationController extends Controller {
     /**
-     * @Route("/api/get/location/{location_id}")
+     * @Route("/api/get/location/{location_id}", options={"expose"=true})
      * @Security("has_role('ROLE_USER')")
      * @Method({"GET"})
      * @param integer $location_id
@@ -24,7 +24,21 @@ class LocationController extends Controller {
     }
 
     /**
-     * @Route("/api/add/location")
+     * @Route("/api/get/location_editor/{location_id}", name="location_editor", options={"expose"=true})
+     * @Security("has_role('ROLE_USER')")
+     * @Method({"GET"})
+     * @param int $location_id
+     * @return JsonResponse
+     */
+    public function locationEditorAction($location_id) {
+        return new JsonResponse(array(
+            'editor' => $this->get('game.locationLoader')->loadLocationEditor(),
+            'level' => $this->get('game.locationLoader')->loadLocation($location_id)
+        ));
+    }
+
+    /**
+     * @Route("/api/add/location", options={"expose"=true})
      * @Security("has_role('ROLE_ADMIN')")
      * @Method({"POST"})
      * @param Request $request

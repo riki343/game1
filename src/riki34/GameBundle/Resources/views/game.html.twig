@@ -37,6 +37,8 @@
     <script src="{{ asset('game/game.js') }}"></script>
     <script src="{{ asset('game/game/game.pixi.directive.js') }}"></script>
 
+    <script src="{{ asset('game/game.location_editor.js') }}"></script>
+
     <script src="{{ asset('game/game.core.js') }}"></script>
 
     <script src="{{ asset('game/query/game.query.execute.service.js') }}"></script>
@@ -47,6 +49,7 @@
     <script src="{{ asset('game/query/game.query.resource_loader.js') }}"></script>
     <script src="{{ asset('game/core/game.core.clank.service.js') }}"></script>
     <script src="{{ asset('game/game/game.canvas.engine.service.js') }}"></script>
+    <script src="{{ asset('game/location_editor/game.location_editor.service.js') }}"></script>
 
     <script src="{{ asset('game/system/game.system.global.controller.js') }}"></script>
     <script src="{{ asset('game/system/game.system.game.controller.js') }}"></script>
@@ -54,6 +57,7 @@
     <script src="{{ asset('game/system/game.system.new_char.controller.js') }}"></script>
     <script src="{{ asset('game/spinner/game.spinner.controller.js') }}"></script>
     <script src="{{ asset('game/system/game.system.level.controller.js') }}"></script>
+    <script src="{{ asset('game/location_editor/game.location_editor.controller.js') }}"></script>
 
     <script src="{{ asset('game/system/game.system.config.js') }}"></script>
     <script src="{{ asset('game/core/game.core.config.js') }}"></script>
@@ -78,7 +82,7 @@
             </li>
 
             <li>
-                <a ng-href="/test">
+                <a ng-href="/test/1">
                     {{ 'Test' | trans }}
                 </a>
             </li>

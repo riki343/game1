@@ -20,9 +20,9 @@
                 'templateUrl': TEMPLATES.game.layout,
                 'controller': 'LevelController as level'
             })
-            .when('/test', {
-                //'templateUrl': TEMPLATES.game.layout,
-                //'controller': 'LevelController as level'
+            .when('/test/:location_id', {
+                'templateUrl': TEMPLATES.editor.level_editor,
+                'controller': 'LocationEditorController as editor'
             })
         ;
     }
