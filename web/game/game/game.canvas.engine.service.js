@@ -16,6 +16,7 @@
         var factory = {
             'resizeEngine': resizeEngine,
             'getRenderer': getRenderer,
+            'getContainers': getContainers,
             'setCanvas': setCanvas,
             'getCanvas': getCanvas,
             'calculateClientWindow': calculateClientWindow
@@ -23,10 +24,6 @@
 
         initEngine();
         return factory;
-
-        function getRenderer() {
-            return self.renderer;
-        }
 
         function initEngine() {
             var point = calculateClientWindow();
@@ -59,12 +56,24 @@
             };
         }
 
+        function getRenderer() {
+            return self.renderer;
+        }
+
         function setCanvas(renderer) {
             self.renderer = renderer;
         }
 
         function getCanvas() {
             return self.renderer;
+        }
+
+        function getContainers() {
+            return {
+                'stage': self.stage,
+                'terrains': self.terrainsContainer,
+                'objects': self.objectsContainer
+            };
         }
     }
 })(angular);

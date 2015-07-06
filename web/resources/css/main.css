@@ -101,11 +101,26 @@
 }
 
 #le-right-panel {
-    background-color: white;
+    background-color: transparent;
     position: absolute;
     right: 0;
     top: 0;
-    width: 20%;
+    width: 25%;
     height: 99%;
     overflow-y: auto;
+    box-shadow: 0 0 2px 0 white;
+}
+
+.select-element {
+    cursor: pointer;
+    opacity: 0.8;
+    box-shadow: 0 0 1px 0 white;
+    margin: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.select-element-selected {
+    opacity: 1 !important;
+    box-shadow: 0 0 10px 1px orange !important;
 }

@@ -11,6 +11,9 @@
         this.level = {};
         this.editor = {};
         this.location_id = $params.location_id;
+        this.season = 'summer';
+
+        this.loadLocation = loadLocation;
 
         loadLocation();
 

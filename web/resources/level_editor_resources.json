@@ -4,93 +4,284 @@
       "humans": {
         "barracks": {
           "resource": "resources/game/war2/buildings/summer/humans/barracks.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "blacksmith": {
           "resource": "resources/game/war2/buildings/summer/humans/blacksmith.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "cannon_tower": {
           "resource": "resources/game/war2/buildings/summer/humans/cannon_tower.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "castle": {
           "resource": "resources/game/war2/buildings/summer/humans/castle.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "church": {
           "resource": "resources/game/war2/buildings/summer/humans/church.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "elven_lumber_mill": {
           "resource": "resources/game/war2/buildings/summer/humans/elven_lumber_mill.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "farm": {
           "resource": "resources/game/war2/buildings/summer/humans/farm.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "foundry": {
           "resource": "resources/game/war2/buildings/summer/humans/foundry.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "gnomish_inventor": {
           "resource": "resources/game/war2/buildings/summer/humans/gnomish_inventor.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "gryphon_aviary": {
           "resource": "resources/game/war2/buildings/summer/humans/gryphon_aviary.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "guard_tower": {
           "resource": "resources/game/war2/buildings/summer/humans/guard_tower.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "keep": {
           "resource": "resources/game/war2/buildings/summer/humans/keep.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "keep": {
           "resource": "resources/game/war2/buildings/summer/humans/keep.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "mage_tower": {
           "resource": "resources/game/war2/buildings/summer/humans/mage_tower.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "oil_platform": {
           "resource": "resources/game/war2/buildings/summer/humans/oil_platform.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "192px"
+            }
+          ]
         },
         "oil_well_construction_site": {
           "resource": "resources/game/war2/buildings/summer/humans/oil_well_construction_site.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "64px",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "refinery": {
           "resource": "resources/game/war2/buildings/summer/humans/refinery.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "scout_tower": {
           "resource": "resources/game/war2/buildings/summer/humans/scout_tower.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "shipyard": {
           "resource": "resources/game/war2/buildings/summer/humans/shipyard.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "stables": {
           "resource": "resources/game/war2/buildings/summer/humans/stables.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         },
         "town_hall": {
           "resource": "resources/game/war2/buildings/summer/humans/town_hall.png",
-          "objects": []
+          "objects": [
+            {
+              "X": "0",
+              "Y": "0",
+              "offsetX": "64px",
+              "offsetY": "64px",
+              "bgX": "64px",
+              "bgY": "128px"
+            }
+          ]
         }
       },
       "orcs": {
         "altar_of_storms": {
           "resource": "resources/game/war2/buildings/summer/orcs/altar_of_storms.png",
-          "objects": []
+          "objects": [
+
+          ]
         },
         "barracks": {
           "resource": "resources/game/war2/buildings/summer/orcs/barracks.png",
