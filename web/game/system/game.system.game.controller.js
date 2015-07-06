@@ -15,6 +15,9 @@
             var promise = char.getChars();
             promise.then(function (data) {
                 self.chars = data;
+                if (self.chars.length > 0) {
+                    self.selectedChar = self.chars[0];
+                }
             });
         }
 

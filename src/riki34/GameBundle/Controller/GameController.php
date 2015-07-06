@@ -30,7 +30,13 @@ class GameController extends Controller {
      * @param int $char_id
      * @return JsonResponse
      */
-    public function loadLevel($char_id) {
-        return new JsonResponse($char_id);
+    public function loadLevel($char_id = null) {
+        $char = $this->getDoctrine()->getRepository('riki34GameBundle:PlayerChar')->find($char_id);
+        if ($char) {
+            return $this->get('game.locationLoader')->loadLocation($char->getLocationID());
+        } else {
+            $message = 'Char is not found';
+            return $this->get('game.RESTResponse')->generateErrorResponse(array($message));
+        }
     }
 }

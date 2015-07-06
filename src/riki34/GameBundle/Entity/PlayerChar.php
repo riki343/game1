@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="player_chars")
  * @ORM\Entity
- * @UniqueEntity("name")
+ * @UniqueEntity("name", groups={"create"})
  */
 class PlayerChar implements RESTEntity
 {
@@ -205,13 +205,13 @@ class PlayerChar implements RESTEntity
 
     /**
      * @var Bag
-     * @ORM\OneToMany(targetEntity="Bag", mappedBy="char", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Bag", mappedBy="char", cascade={"remove"}, fetch="EAGER")
      */
     private $bag;
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Skill", fetch="EXTRA_LAZY")
+     * @ORM\ManyToMany(targetEntity="Skill", fetch="EAGER")
      * @ORM\JoinTable(name="char_skills",
      *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="skill_id", referencedColumnName="id")}
@@ -221,7 +221,7 @@ class PlayerChar implements RESTEntity
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Quest", fetch="EXTRA_LAZY")
+     * @ORM\ManyToMany(targetEntity="Quest", fetch="EAGER")
      * @ORM\JoinTable(name="char_complete_quests",
      *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="quest_id", referencedColumnName="id")}
@@ -231,7 +231,7 @@ class PlayerChar implements RESTEntity
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Achievement", fetch="EXTRA_LAZY")
+     * @ORM\ManyToMany(targetEntity="Achievement", fetch="EAGER")
      * @ORM\JoinTable(name="char_achievement",
      *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="achievement_id", referencedColumnName="id")}

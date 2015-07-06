@@ -4,14 +4,17 @@ namespace riki34\GameBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use riki34\GameBundle\Extra\JSONTransformer;
 use riki34\GameBundle\Interfaces\RESTEntity;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Location
  *
  * @ORM\Table(name="locations")
  * @ORM\Entity
+ * @UniqueEntity("name", groups={"create"})
  */
 class Location implements RESTEntity
 {
@@ -26,7 +29,11 @@ class Location implements RESTEntity
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(groups={"create"})
+     * @Assert\Length(
+     *      min="2", max="20",
+     *      groups={"create"}
+     * )
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;

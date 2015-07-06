@@ -17,7 +17,7 @@
 
         function generateErrorList(id) {
             var list = '<ul id="' + id + '_errors">';
-            list += '<li style="font-size: 13px;" ng-repeat="error in errors" ng-if="error.field == \''+ id +'\'" ng-bind="error.message"></li>';
+            list += '<li style="font-size: 13px;" class="text-primary" ng-repeat="error in errors" ng-if="error.field == \''+ id +'\'" ng-bind="error.message"></li>';
             list += '</ul>';
 
             return list;
