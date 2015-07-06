@@ -95,3 +95,17 @@
 .ngi-inspector {
     color: #000000;
 }
+
+#level-editor {
+    position: relative;
+}
+
+#le-right-panel {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20%;
+    height: 99%;
+    overflow-y: auto;
+}

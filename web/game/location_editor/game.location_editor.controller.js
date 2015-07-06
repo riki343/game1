@@ -6,20 +6,20 @@
         'locationEditor'
     ];
 
-    function LocationEditorController($params, editorService) {
+    function LocationEditorController($params, locationEditor) {
         var self = this;
         this.level = {};
         this.editor = {};
         this.location_id = $params.location_id;
 
+        loadLocation();
+
         function loadLocation() {
-            var promise = editorService.loadLevel(self.location_id);
+            var promise = locationEditor.loadLevel(self.location_id);
             promise.then(function (data) {
                 self.editor = data.editor;
                 self.level = data.level;
             });
         }
-
-        loadLocation();
     }
 })(angular);

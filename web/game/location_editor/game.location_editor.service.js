@@ -1,15 +1,19 @@
-(function (angular) {
+(function (angular, PIXI) {
     angular.module('location_editor').factory('locationEditor', locationEditor);
 
     locationEditor.$inject = [
         'executeQuery',
         '$q',
         'spinnerService',
-        'resourceLoader'
+        'resourceLoader',
+        'canvasEngineService',
+        '$window'
     ];
 
-    function locationEditor(query, $q, spinner, resource) {
+    function locationEditor(query, $q, spinner, resource, engine) {
         var self = this;
+        this.location = { 'rows': 32, 'cols': 32 };
+
 
         var factory = {
             'loadLevel': loadLevel
@@ -65,4 +69,4 @@
             return defered.promise;
         }
     }
-})(angular);
+})(angular, PIXI);
