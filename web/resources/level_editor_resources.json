@@ -1,3 +1,955 @@
 {
-  "": ""
+  "buildings": {
+    "summer": {
+      "humans": {
+        "barracks": {
+          "resource": "/resources/game/war2/buildings/summer/humans/barracks.png",
+          "objects": []
+        },
+        "blacksmith": {
+          "resource": "/resources/game/war2/buildings/summer/humans/blacksmith.png",
+          "objects": []
+        },
+        "cannon_tower": {
+          "resource": "/resources/game/war2/buildings/summer/humans/cannon_tower.png",
+          "objects": []
+        },
+        "castle": {
+          "resource": "/resources/game/war2/buildings/summer/humans/castle.png",
+          "objects": []
+        },
+        "church": {
+          "resource": "/resources/game/war2/buildings/summer/humans/church.png",
+          "objects": []
+        },
+        "elven_lumber_mill": {
+          "resource": "/resources/game/war2/buildings/summer/humans/elven_lumber_mill.png",
+          "objects": []
+        },
+        "farm": {
+          "resource": "/resources/game/war2/buildings/summer/humans/farm.png",
+          "objects": []
+        },
+        "foundry": {
+          "resource": "/resources/game/war2/buildings/summer/humans/foundry.png",
+          "objects": []
+        },
+        "gnomish_inventor": {
+          "resource": "/resources/game/war2/buildings/summer/humans/gnomish_inventor.png",
+          "objects": []
+        },
+        "gryphon_aviary": {
+          "resource": "/resources/game/war2/buildings/summer/humans/gryphon_aviary.png",
+          "objects": []
+        },
+        "guard_tower": {
+          "resource": "/resources/game/war2/buildings/summer/humans/guard_tower.png",
+          "objects": []
+        },
+        "keep": {
+          "resource": "/resources/game/war2/buildings/summer/humans/keep.png",
+          "objects": []
+        },
+        "keep": {
+          "resource": "/resources/game/war2/buildings/summer/humans/keep.png",
+          "objects": []
+        },
+        "mage_tower": {
+          "resource": "/resources/game/war2/buildings/summer/humans/mage_tower.png",
+          "objects": []
+        },
+        "oil_platform": {
+          "resource": "/resources/game/war2/buildings/summer/humans/oil_platform.png",
+          "objects": []
+        },
+        "oil_well_construction_site": {
+          "resource": "/resources/game/war2/buildings/summer/humans/oil_well_construction_site.png",
+          "objects": []
+        },
+        "refinery": {
+          "resource": "/resources/game/war2/buildings/summer/humans/refinery.png",
+          "objects": []
+        },
+        "scout_tower": {
+          "resource": "/resources/game/war2/buildings/summer/humans/scout_tower.png",
+          "objects": []
+        },
+        "shipyard": {
+          "resource": "/resources/game/war2/buildings/summer/humans/shipyard.png",
+          "objects": []
+        },
+        "stables": {
+          "resource": "/resources/game/war2/buildings/summer/humans/stables.png",
+          "objects": []
+        },
+        "town_hall": {
+          "resource": "/resources/game/war2/buildings/summer/humans/town_hall.png",
+          "objects": []
+        }
+      },
+      "orcs": {
+        "altar_of_storms": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/altar_of_storms.png",
+          "objects": []
+        },
+        "barracks": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/barracks.png",
+          "objects": []
+        },
+        "blacksmith": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/blacksmith.png",
+          "objects": []
+        },
+        "cannon_tower": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/cannon_tower.png",
+          "objects": []
+        },
+        "dragon_roost": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/dragon_roost.png",
+          "objects": []
+        },
+        "fortress": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/fortress.png",
+          "objects": []
+        },
+        "foundry": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/foundry.png",
+          "objects": []
+        },
+        "goblin_alchemist": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/goblin_alchemist.png",
+          "objects": []
+        },
+        "great_hall": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/great_hall.png",
+          "objects": []
+        },
+        "guard_tower": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/guard_tower.png",
+          "objects": []
+        },
+        "ogre_mound": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/ogre_mound.png",
+          "objects": []
+        },
+        "oil_platform": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/oil_platform.png",
+          "objects": []
+        },
+        "oil_well_construction_site": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/oil_well_construction_site.png",
+          "objects": []
+        },
+        "pig_farm": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/pig_farm.png",
+          "objects": []
+        },
+        "refinery": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/refinery.png",
+          "objects": []
+        },
+        "shipyard": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/shipyard.png",
+          "objects": []
+        },
+        "stronghold": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/stronghold.png",
+          "objects": []
+        },
+        "temple_of_the_damned": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/temple_of_the_damned.png",
+          "objects": []
+        },
+        "troll_lumber_mill": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/troll_lumber_mill.png",
+          "objects": []
+        },
+        "watch_tower": {
+          "resource": "/resources/game/war2/buildings/summer/orcs/watch_tower.png",
+          "objects": []
+        }
+      },
+      "neutrals": {
+        "dark_portal": {
+          "resource": "/resources/game/war2/buildings/summer/neutrals/dark_portal.png",
+          "objects": []
+        },
+        "destroyed_site": {
+          "resource": "/resources/game/war2/buildings/summer/neutrals/destroyed_site.png",
+          "objects": []
+        },
+        "gold_mine": {
+          "resource": "/resources/game/war2/buildings/summer/neutrals/gold_mine.png",
+          "objects": []
+        },
+        "oil_patch": {
+          "resource": "/resources/game/war2/buildings/summer/neutrals/oil_patch.png",
+          "objects": []
+        },
+        "small_destroyed_site": {
+          "resource": "/resources/game/war2/buildings/summer/neutrals/small_destroyed_site.png",
+          "objects": []
+        },
+        "wall": {
+          "resource": "/resources/game/war2/buildings/summer/neutrals/wall.png",
+          "objects": []
+        },
+        "wall_construction_site": {
+          "resource": "/resources/game/war2/buildings/summer/neutrals/wall_construction_site.png",
+          "objects": []
+        }
+      }
+    },
+    "swamp": {
+      "humans": {
+        "barracks": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/barracks.png",
+          "objects": []
+        },
+        "blacksmith": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/blacksmith.png",
+          "objects": []
+        },
+        "cannon_tower": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/cannon_tower.png",
+          "objects": []
+        },
+        "castle": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/castle.png",
+          "objects": []
+        },
+        "church": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/church.png",
+          "objects": []
+        },
+        "elven_lumber_mill": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/elven_lumber_mill.png",
+          "objects": []
+        },
+        "farm": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/farm.png",
+          "objects": []
+        },
+        "foundry": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/foundry.png",
+          "objects": []
+        },
+        "gnomish_inventor": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/gnomish_inventor.png",
+          "objects": []
+        },
+        "gryphon_aviary": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/gryphon_aviary.png",
+          "objects": []
+        },
+        "guard_tower": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/guard_tower.png",
+          "objects": []
+        },
+        "keep": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/keep.png",
+          "objects": []
+        },
+        "keep": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/keep.png",
+          "objects": []
+        },
+        "mage_tower": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/mage_tower.png",
+          "objects": []
+        },
+        "oil_platform": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/oil_platform.png",
+          "objects": []
+        },
+        "oil_well_construction_site": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/oil_well_construction_site.png",
+          "objects": []
+        },
+        "refinery": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/refinery.png",
+          "objects": []
+        },
+        "scout_tower": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/scout_tower.png",
+          "objects": []
+        },
+        "shipyard": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/shipyard.png",
+          "objects": []
+        },
+        "stables": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/stables.png",
+          "objects": []
+        },
+        "town_hall": {
+          "resource": "/resources/game/war2/buildings/swamp/humans/town_hall.png",
+          "objects": []
+        }
+      },
+      "orcs": {
+        "altar_of_storms": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/altar_of_storms.png",
+          "objects": []
+        },
+        "barracks": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/barracks.png",
+          "objects": []
+        },
+        "blacksmith": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/blacksmith.png",
+          "objects": []
+        },
+        "cannon_tower": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/cannon_tower.png",
+          "objects": []
+        },
+        "dragon_roost": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/dragon_roost.png",
+          "objects": []
+        },
+        "fortress": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/fortress.png",
+          "objects": []
+        },
+        "foundry": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/foundry.png",
+          "objects": []
+        },
+        "goblin_alchemist": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/goblin_alchemist.png",
+          "objects": []
+        },
+        "great_hall": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/great_hall.png",
+          "objects": []
+        },
+        "guard_tower": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/guard_tower.png",
+          "objects": []
+        },
+        "ogre_mound": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/ogre_mound.png",
+          "objects": []
+        },
+        "oil_platform": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/oil_platform.png",
+          "objects": []
+        },
+        "oil_well_construction_site": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/oil_well_construction_site.png",
+          "objects": []
+        },
+        "pig_farm": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/pig_farm.png",
+          "objects": []
+        },
+        "refinery": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/refinery.png",
+          "objects": []
+        },
+        "shipyard": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/shipyard.png",
+          "objects": []
+        },
+        "stronghold": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/stronghold.png",
+          "objects": []
+        },
+        "temple_of_the_damned": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/temple_of_the_damned.png",
+          "objects": []
+        },
+        "troll_lumber_mill": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/troll_lumber_mill.png",
+          "objects": []
+        },
+        "watch_tower": {
+          "resource": "/resources/game/war2/buildings/swamp/orcs/watch_tower.png",
+          "objects": []
+        }
+      },
+      "neutrals": {
+        "dark_portal": {
+          "resource": "/resources/game/war2/buildings/swamp/neutrals/dark_portal.png",
+          "objects": []
+        },
+        "destroyed_site": {
+          "resource": "/resources/game/war2/buildings/swamp/neutrals/destroyed_site.png",
+          "objects": []
+        },
+        "gold_mine": {
+          "resource": "/resources/game/war2/buildings/swamp/neutrals/gold_mine.png",
+          "objects": []
+        },
+        "oil_patch": {
+          "resource": "/resources/game/war2/buildings/swamp/neutrals/oil_patch.png",
+          "objects": []
+        },
+        "small_destroyed_site": {
+          "resource": "/resources/game/war2/buildings/swamp/neutrals/small_destroyed_site.png",
+          "objects": []
+        },
+        "wall": {
+          "resource": "/resources/game/war2/buildings/swamp/neutrals/wall.png",
+          "objects": []
+        },
+        "wall_construction_site": {
+          "resource": "/resources/game/war2/buildings/swamp/neutrals/wall_construction_site.png",
+          "objects": []
+        }
+      }
+    },
+    "wasteland": {
+      "humans": {
+        "elven_lumber_mill": {
+          "resource": "/resources/game/war2/buildings/wasteland/elven_lumber_mill.png",
+          "objects": []
+        },
+        "farm": {
+          "resource": "/resources/game/war2/buildings/wasteland/farm.png",
+          "objects": []
+        },
+        "oil_platform": {
+          "resource": "/resources/game/war2/buildings/wasteland/oil_platform.png",
+          "objects": []
+        },
+        "oil_well_construction_site": {
+          "resource": "/resources/game/war2/buildings/wasteland/oil_well_construction_site.png",
+          "objects": []
+        }
+      },
+      "orcs": {},
+      "neutrals": {}
+    },
+    "winter": {
+      "humans": {
+        "barracks": {
+          "resource": "/resources/game/war2/buildings/winter/humans/barracks.png",
+          "objects": []
+        },
+        "blacksmith": {
+          "resource": "/resources/game/war2/buildings/winter/humans/blacksmith.png",
+          "objects": []
+        },
+        "cannon_tower": {
+          "resource": "/resources/game/war2/buildings/winter/humans/cannon_tower.png",
+          "objects": []
+        },
+        "castle": {
+          "resource": "/resources/game/war2/buildings/winter/humans/castle.png",
+          "objects": []
+        },
+        "church": {
+          "resource": "/resources/game/war2/buildings/winter/humans/church.png",
+          "objects": []
+        },
+        "elven_lumber_mill": {
+          "resource": "/resources/game/war2/buildings/winter/humans/elven_lumber_mill.png",
+          "objects": []
+        },
+        "farm": {
+          "resource": "/resources/game/war2/buildings/winter/humans/farm.png",
+          "objects": []
+        },
+        "foundry": {
+          "resource": "/resources/game/war2/buildings/winter/humans/foundry.png",
+          "objects": []
+        },
+        "gnomish_inventor": {
+          "resource": "/resources/game/war2/buildings/winter/humans/gnomish_inventor.png",
+          "objects": []
+        },
+        "gryphon_aviary": {
+          "resource": "/resources/game/war2/buildings/winter/humans/gryphon_aviary.png",
+          "objects": []
+        },
+        "guard_tower": {
+          "resource": "/resources/game/war2/buildings/winter/humans/guard_tower.png",
+          "objects": []
+        },
+        "keep": {
+          "resource": "/resources/game/war2/buildings/winter/humans/keep.png",
+          "objects": []
+        },
+        "keep": {
+          "resource": "/resources/game/war2/buildings/winter/humans/keep.png",
+          "objects": []
+        },
+        "mage_tower": {
+          "resource": "/resources/game/war2/buildings/winter/humans/mage_tower.png",
+          "objects": []
+        },
+        "oil_platform": {
+          "resource": "/resources/game/war2/buildings/winter/humans/oil_platform.png",
+          "objects": []
+        },
+        "oil_well_construction_site": {
+          "resource": "/resources/game/war2/buildings/winter/humans/oil_well_construction_site.png",
+          "objects": []
+        },
+        "refinery": {
+          "resource": "/resources/game/war2/buildings/winter/humans/refinery.png",
+          "objects": []
+        },
+        "scout_tower": {
+          "resource": "/resources/game/war2/buildings/winter/humans/scout_tower.png",
+          "objects": []
+        },
+        "shipyard": {
+          "resource": "/resources/game/war2/buildings/winter/humans/shipyard.png",
+          "objects": []
+        },
+        "stables": {
+          "resource": "/resources/game/war2/buildings/winter/humans/stables.png",
+          "objects": []
+        },
+        "town_hall": {
+          "resource": "/resources/game/war2/buildings/winter/humans/town_hall.png",
+          "objects": []
+        }
+      },
+      "orcs": {
+        "altar_of_storms": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/altar_of_storms.png",
+          "objects": []
+        },
+        "barracks": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/barracks.png",
+          "objects": []
+        },
+        "blacksmith": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/blacksmith.png",
+          "objects": []
+        },
+        "cannon_tower": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/cannon_tower.png",
+          "objects": []
+        },
+        "dragon_roost": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/dragon_roost.png",
+          "objects": []
+        },
+        "fortress": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/fortress.png",
+          "objects": []
+        },
+        "foundry": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/foundry.png",
+          "objects": []
+        },
+        "goblin_alchemist": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/goblin_alchemist.png",
+          "objects": []
+        },
+        "great_hall": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/great_hall.png",
+          "objects": []
+        },
+        "guard_tower": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/guard_tower.png",
+          "objects": []
+        },
+        "ogre_mound": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/ogre_mound.png",
+          "objects": []
+        },
+        "oil_platform": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/oil_platform.png",
+          "objects": []
+        },
+        "oil_well_construction_site": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/oil_well_construction_site.png",
+          "objects": []
+        },
+        "pig_farm": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/pig_farm.png",
+          "objects": []
+        },
+        "refinery": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/refinery.png",
+          "objects": []
+        },
+        "shipyard": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/shipyard.png",
+          "objects": []
+        },
+        "stronghold": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/stronghold.png",
+          "objects": []
+        },
+        "temple_of_the_damned": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/temple_of_the_damned.png",
+          "objects": []
+        },
+        "troll_lumber_mill": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/troll_lumber_mill.png",
+          "objects": []
+        },
+        "watch_tower": {
+          "resource": "/resources/game/war2/buildings/winter/orcs/watch_tower.png",
+          "objects": []
+        }
+      },
+      "neutrals": {
+        "dark_portal": {
+          "resource": "/resources/game/war2/buildings/winter/neutrals/dark_portal.png",
+          "objects": []
+        },
+        "destroyed_site": {
+          "resource": "/resources/game/war2/buildings/winter/neutrals/destroyed_site.png",
+          "objects": []
+        },
+        "gold_mine": {
+          "resource": "/resources/game/war2/buildings/winter/neutrals/gold_mine.png",
+          "objects": []
+        },
+        "oil_patch": {
+          "resource": "/resources/game/war2/buildings/winter/neutrals/oil_patch.png",
+          "objects": []
+        },
+        "small_destroyed_site": {
+          "resource": "/resources/game/war2/buildings/winter/neutrals/small_destroyed_site.png",
+          "objects": []
+        },
+        "wall": {
+          "resource": "/resources/game/war2/buildings/winter/neutrals/wall.png",
+          "objects": []
+        },
+        "wall_construction_site": {
+          "resource": "/resources/game/war2/buildings/winter/neutrals/wall_construction_site.png",
+          "objects": []
+        }
+      }
+    }
+  },
+  "icons": {
+    "summer": {
+      "resource": "/resources/game/war2/icons/summer.png",
+      "objects": []
+    },
+    "swamp": {
+      "resource": "/resources/game/war2/icons/swamp.png",
+      "objects": []
+    },
+    "wasteland": {
+      "resource": "/resources/game/war2/icons/wasteland.png",
+      "objects": []
+    },
+    "winter": {
+      "resource": "/resources/game/war2/icons/winter.png",
+      "objects": []
+    }
+  },
+  "missiles": {
+    "arrow": {
+      "resource": "/resources/game/war2/missiles/arrow.png",
+      "objects": []
+    },
+    "axe": {
+      "resource": "/resources/game/war2/missiles/axe.png",
+      "objects": []
+    },
+    "ballista-catapult_impact": {
+      "resource": "/resources/game/war2/missiles/ballista-catapult_impact.png",
+      "objects": []
+    },
+    "ballista_bolt": {
+      "resource": "/resources/game/war2/missiles/ballista_bolt.png",
+      "objects": []
+    },
+    "big_cannon": {
+      "resource": "/resources/game/war2/missiles/big_cannon.png",
+      "objects": []
+    },
+    "big_fire": {
+      "resource": "/resources/game/war2/missiles/big_fire.png",
+      "objects": []
+    },
+    "blizzard": {
+      "resource": "/resources/game/war2/missiles/blizzard.png",
+      "objects": []
+    },
+    "cannon": {
+      "resource": "/resources/game/war2/missiles/cannon.png",
+      "objects": []
+    },
+    "cannon-tower_explosion": {
+      "resource": "/resources/game/war2/missiles/cannon-tower_explosion.png",
+      "objects": []
+    },
+    "cannon_explosion": {
+      "resource": "/resources/game/war2/missiles/cannon_explosion.png",
+      "objects": []
+    },
+    "catapult_rock": {
+      "resource": "/resources/game/war2/missiles/catapult_rock.png",
+      "objects": []
+    },
+    "daemon_fire": {
+      "resource": "/resources/game/war2/missiles/daemon_fire.png",
+      "objects": []
+    },
+    "death_and_decay": {
+      "resource": "/resources/game/war2/missiles/death_and_decay.png",
+      "objects": []
+    },
+    "dragon_breath": {
+      "resource": "/resources/game/war2/missiles/dragon_breath.png",
+      "objects": []
+    },
+    "exorcism": {
+      "resource": "/resources/game/war2/missiles/exorcism.png",
+      "objects": []
+    },
+    "explosion": {
+      "resource": "/resources/game/war2/missiles/explosion.png",
+      "objects": []
+    },
+    "fireball": {
+      "resource": "/resources/game/war2/missiles/fireball.png",
+      "objects": []
+    },
+    "flame_shield": {
+      "resource": "/resources/game/war2/missiles/flame_shield.png",
+      "objects": []
+    },
+    "green_cross": {
+      "resource": "/resources/game/war2/missiles/green_cross.png",
+      "objects": []
+    },
+    "gryphon_hammer": {
+      "resource": "/resources/game/war2/missiles/gryphon_hammer.png",
+      "objects": []
+    },
+    "heal_effect": {
+      "resource": "/resources/game/war2/missiles/heal_effect.png",
+      "objects": []
+    },
+    "lightning": {
+      "resource": "/resources/game/war2/missiles/lightning.png",
+      "objects": []
+    },
+    "normal_spell": {
+      "resource": "/resources/game/war2/missiles/normal_spell.png",
+      "objects": []
+    },
+    "red_cross": {
+      "resource": "/resources/game/war2/missiles/red_cross.png",
+      "objects": []
+    },
+    "rune": {
+      "resource": "/resources/game/war2/missiles/rune.png",
+      "objects": []
+    },
+    "small_fire": {
+      "resource": "/resources/game/war2/missiles/small_fire.png",
+      "objects": []
+    },
+    "submarine_missile": {
+      "resource": "/resources/game/war2/missiles/submarine_missile.png",
+      "objects": []
+    },
+    "tornado": {
+      "resource": "/resources/game/war2/missiles/tornado.png",
+      "objects": []
+    },
+    "touch_of_death": {
+      "resource": "/resources/game/war2/missiles/touch_of_death.png",
+      "objects": []
+    },
+    "turtle_missile": {
+      "resource": "/resources/game/war2/missiles/turtle_missile.png",
+      "objects": []
+    },
+    "unit_shadow": {
+      "resource": "/resources/game/war2/missiles/unit_shadow.png",
+      "objects": []
+    }
+  },
+  "terrains": {
+    "summer": {
+      "resource": "/resources/game/war2/terrains/summer.png",
+      "objects": []
+    },
+    "swamp": {
+      "resource": "/resources/game/war2/terrains/swamp.png",
+      "objects": []
+    },
+    "wasteland": {
+      "resource": "/resources/game/war2/terrains/wasteland.png",
+      "objects": []
+    },
+    "winter": {
+      "resource": "/resources/game/war2/terrains/winter.png",
+      "objects": []
+    }
+  },
+  "units": {
+    "humans": {
+      "ballista": {
+        "resource": "/resources/game/war2/units/humans/ballista.png",
+        "objects": []
+      },
+      "battleship": {
+        "resource": "/resources/game/war2/units/humans/battleship.png",
+        "objects": []
+      },
+      "dwarven_demolition_squad": {
+        "resource": "/resources/game/war2/units/humans/dwarven_demolition_squad.png",
+        "objects": []
+      },
+      "elven_archer": {
+        "resource": "/resources/game/war2/units/humans/elven_archer.png",
+        "objects": []
+      },
+      "elven_destroyer": {
+        "resource": "/resources/game/war2/units/humans/elven_destroyer.png",
+        "objects": []
+      },
+      "footman": {
+        "resource": "/resources/game/war2/units/humans/footman.png",
+        "objects": []
+      },
+      "gnomish_flying_machine": {
+        "resource": "/resources/game/war2/units/humans/gnomish_flying_machine.png",
+        "objects": []
+      },
+      "gnomish_submarine": {
+        "resource": "/resources/game/war2/units/humans/gnomish_submarine.png",
+        "objects": []
+      },
+      "gryphon_rider": {
+        "resource": "/resources/game/war2/units/humans/gryphon_rider.png",
+        "objects": []
+      },
+      "knight": {
+        "resource": "/resources/game/war2/units/humans/knight.png",
+        "objects": []
+      },
+      "mage": {
+        "resource": "/resources/game/war2/units/humans/mage.png",
+        "objects": []
+      },
+      "oil_tanker_empty": {
+        "resource": "/resources/game/war2/units/humans/oil_tanker_empty.png",
+        "objects": []
+      },
+      "oil_tanker_full": {
+        "resource": "/resources/game/war2/units/humans/oil_tanker_full.png",
+        "objects": []
+      },
+      "peasant": {
+        "resource": "/resources/game/war2/units/humans/peasant.png",
+        "objects": []
+      },
+      "peasant_with_gold": {
+        "resource": "/resources/game/war2/units/humans/peasant_with_gold.png",
+        "objects": []
+      },
+      "peasant_with_wood": {
+        "resource": "/resources/game/war2/units/humans/peasant_with_wood.png",
+        "objects": []
+      },
+      "transport": {
+        "resource": "/resources/game/war2/units/humans/transport.png",
+        "objects": []
+      }
+    },
+    "neutrals": {
+      "corpses": {
+        "resource": "/resources/game/war2/units/neutrals/corpses.png",
+        "objects": []
+      },
+      "critter_summer": {
+        "resource": "/resources/game/war2/units/neutrals/critter_summer.png",
+        "objects": []
+      },
+      "daemon": {
+        "resource": "/resources/game/war2/units/neutrals/daemon.png",
+        "objects": []
+      },
+      "skeleton": {
+        "resource": "/resources/game/war2/units/neutrals/skeleton.png",
+        "objects": []
+      }
+    },
+    "orcs": {
+      "catapult": {
+        "resource": "/resources/game/war2/units/orcs/catapult.png",
+        "objects": []
+      },
+      "death_knight": {
+        "resource": "/resources/game/war2/units/orcs/death_knight.png",
+        "objects": []
+      },
+      "dragon": {
+        "resource": "/resources/game/war2/units/orcs/dragon.png",
+        "objects": []
+      },
+      "eye_of_kilrogg": {
+        "resource": "/resources/game/war2/units/orcs/eye_of_kilrogg.png",
+        "objects": []
+      },
+      "giant_turtle": {
+        "resource": "/resources/game/war2/units/orcs/giant_turtle.png",
+        "objects": []
+      },
+      "goblin_sappers": {
+        "resource": "/resources/game/war2/units/orcs/goblin_sappers.png",
+        "objects": []
+      },
+      "goblin_zeppelin": {
+        "resource": "/resources/game/war2/units/orcs/goblin_zeppelin.png",
+        "objects": []
+      },
+      "grunt": {
+        "resource": "/resources/game/war2/units/orcs/grunt.png",
+        "objects": []
+      },
+      "ogre": {
+        "resource": "/resources/game/war2/units/orcs/ogre.png",
+        "objects": []
+      },
+      "ogre_juggernaught": {
+        "resource": "/resources/game/war2/units/orcs/ogre_juggernaught.png",
+        "objects": []
+      },
+      "oil_tanker_empty": {
+        "resource": "/resources/game/war2/units/orcs/oil_tanker_empty.png",
+        "objects": []
+      },
+      "oil_tanker_full": {
+        "resource": "/resources/game/war2/units/orcs/oil_tanker_full.png",
+        "objects": []
+      },
+      "peon": {
+        "resource": "/resources/game/war2/units/orcs/peon.png",
+        "objects": []
+      },
+      "peon_with_gold": {
+        "resource": "/resources/game/war2/units/orcs/peon_with_gold.png",
+        "objects": []
+      },
+      "peon_with_wood": {
+        "resource": "/resources/game/war2/units/orcs/peon_with_wood.png",
+        "objects": []
+      },
+      "transport": {
+        "resource": "/resources/game/war2/units/orcs/transport.png",
+        "objects": []
+      },
+      "troll_axethrower": {
+        "resource": "/resources/game/war2/units/orcs/troll_axethrower.png",
+        "objects": []
+      },
+      "troll_destroyer": {
+        "resource": "/resources/game/war2/units/orcs/troll_destroyer.png",
+        "objects": []
+      }
+    }
+  },
+  "ui": {
+
+  }
 }
