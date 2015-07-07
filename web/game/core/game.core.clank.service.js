@@ -21,14 +21,16 @@
         function connect() {
             if (angular.isDefined(Clank)) {
                 self.clank = Clank.connect('ws://game.tld:8080');
-                self.clank.on("game/connect", function (session) {
-                    self.session = session;
-                });
-                self.clank.on("game/disconnect", function (error) {
-                    console.log("Disconnected for " + error.reason + " with code " + error.code);
-                    self.clank = null;
-                    self.session = null;
-                });
+                if (self.clank) {
+                    self.clank.on("game/connect", function (session) {
+                        self.session = session;
+                    });
+                    self.clank.on("game/disconnect", function (error) {
+                        console.log("Disconnected for " + error.reason + " with code " + error.code);
+                        self.clank = null;
+                        self.session = null;
+                    });
+                }
             } else {
                 console.log('This module requires Clank.js');
             }

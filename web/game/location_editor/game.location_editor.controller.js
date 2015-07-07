@@ -3,10 +3,11 @@
 
     LocationEditorController.$inject = [
         '$routeParams',
-        'locationEditor'
+        'locationEditor',
+        'canvasEngineService'
     ];
 
-    function LocationEditorController($params, locationEditor) {
+    function LocationEditorController($params, locationEditor, canvas) {
         var self = this;
         this.level = {};
         this.editor = {};
@@ -14,7 +15,6 @@
         this.season = 'summer';
 
         this.loadLocation = loadLocation;
-
         loadLocation();
 
         function loadLocation() {
@@ -22,6 +22,7 @@
             promise.then(function (data) {
                 self.editor = data.editor;
                 self.level = data.level;
+                canvas.initEngine(self.level.width, self.level.height);
             });
         }
     }

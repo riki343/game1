@@ -12,18 +12,17 @@
         };
 
         function link($scope, element, attr) {
-            var renderer = engine.getRenderer();
+            var point = engine.calculateClientWindow();
+            var renderer = PIXI.autoDetectRenderer(point.width, point.height);
+            engine.setRenderer(renderer);
             var canvas = angular.element(renderer.view);
             canvas.attr('id', 'canvas');
             element.append(canvas);
 
             window.onresize = function () {
                 var point = engine.calculateClientWindow();
-                canvas.attr('width', point.width);
-                canvas.attr('height', point.height);
-                renderer.width = point.width;
-                renderer.height = point.height;
-                engine.resizeEngine();
+                renderer.view.width = point.width;
+                renderer.view.height = point.height;
             };
 
             engine.setCanvas(canvas);

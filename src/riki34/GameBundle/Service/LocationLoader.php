@@ -60,7 +60,6 @@ class LocationLoader {
         return $this->response->generateSuccessResponse(array($message));
     }
 
-
     public function loadLocationEditor() {
         return $this->jsonLoader->loadFile("resources/level_editor_resources.json");
     }
