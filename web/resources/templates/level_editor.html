@@ -35,16 +35,12 @@
                 </div>
                 <div id="terrains" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        <h4 class="text-info" align="center">Human buildings</h4>
-                        <hr/>
                         <div class="center-block">
-                            <div ng-repeat="(key, build) in editor.editor.buildings[editor.season].humans" style="display: inline-block;">
-                                <div ng-repeat="unit in build.objects"
-                                     ng-click="editor.selected = unit"
-                                     ng-class="{ 'select-element-selected': unit == editor.selected }"
-                                     class="select-element">
-                                    <resource-image img="build.resource" unit="unit"></resource-image>
-                                </div>
+                            <div ng-repeat="(key, unit) in editor.editor.terrains[editor.season].objects"
+                                 ng-click="editor.selectTerrain(editor.editor.terrains[editor.season], unit);"
+                                 ng-class="{ 'select-element-selected': unit == editor.selectedTerrain }"
+                                 class="select-element" style="display: inline-block;">
+                                <resource-image img="editor.editor.terrains[editor.season].resource" unit="unit"></resource-image>
                             </div>
                         </div>
                     </div>
@@ -60,7 +56,18 @@
                 </div>
                 <div id="buildings" class="panel-collapse collapse in">
                     <div class="panel-body">
-
+                        <h4 class="text-info" align="center">Human buildings</h4>
+                        <hr/>
+                        <div class="center-block">
+                            <div ng-repeat="(key, build) in editor.editor.buildings[editor.season].humans" style="display: inline-block;">
+                                <div ng-repeat="unit in build.objects"
+                                     ng-click="editor.selectBuilding(build, unit);"
+                                     ng-class="{ 'select-element-selected': unit == editor.selectedBuilding }"
+                                     class="select-element">
+                                    <resource-image img="build.resource" unit="unit"></resource-image>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

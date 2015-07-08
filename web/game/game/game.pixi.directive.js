@@ -23,6 +23,7 @@
                 var point = engine.calculateClientWindow();
                 renderer.view.width = point.width;
                 renderer.view.height = point.height;
+                renderer.resize(point.width, point.height);
             };
 
             engine.setCanvas(canvas);

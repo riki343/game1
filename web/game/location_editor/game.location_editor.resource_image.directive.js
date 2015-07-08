@@ -15,10 +15,10 @@
             var image = $scope.img;
             var unit = $scope.unit;
             imageElement.css('background-image', 'url(\'' + image.src + '\')');
+            imageElement.css('background-size', unit.bgX + ' ' + unit.bgY);
+            imageElement.css('background-position', '-' + unit.X + ' ' + '-' + unit.Y);
             imageElement.css('width', unit.offsetX);
             imageElement.css('height', unit.offsetY);
-            imageElement.css('background-size', unit.bgX + ' ' + unit.bgY);
-            imageElement.css('background-position', unit.X + ' ' + unit.Y);
         }
     }
 })(angular);
